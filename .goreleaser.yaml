@@ -49,8 +49,8 @@ archives:
 checksum:
   name_template: checksums.txt
 
-changelog:
-  disable: true
+# No changelog section: the release body comes from --release-notes, and changelog.disable would
+# drop that file too and publish an empty body.
 
 release:
   github:
