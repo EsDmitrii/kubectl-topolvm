@@ -22,8 +22,8 @@ lv-on-missing-node   logicalvolume/pvc-a6      node-gone   5Gi      23d      nod
 stuck-deletion       logicalvolume/pvc-a7      node-a      2Gi      120m     deletion requested 120m ago, finalizers: topolvm.io/logicalvolume
 lv-error             logicalvolume/pvc-a10     node-b      20Gi     23d      expand failed: Internal: not enough space
 resize-pending       logicalvolume/pvc-a10     node-b      30Gi     179m     spec.size 30Gi, current 20Gi
-$ echo $?
-2
+$ echo "exit code: $?"    # 0 nothing found, 1 error, 2 problems found
+exit code: 2
 
 $ kubectl topolvm fit 50Gi
 NODE     DEVICE-CLASS   FREE    FREE-AFTER   FITS   COUNT   NOTES
