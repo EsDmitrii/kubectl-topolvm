@@ -1,0 +1,95 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: topolvm
+spec:
+  version: "v{{VERSION}}"
+  homepage: https://github.com/EsDmitrii/kubectl-topolvm
+  shortDescription: Show TopoLVM capacity, volumes and anomalies
+  description: |
+    Read-only view of TopoLVM, the node-local LVM CSI driver: free and
+    allocated space per node and device class, which claim sits on which
+    LogicalVolume, and checks for leaked, released, stuck or failed volumes
+    with an exit code for cron and CI. Also shows where a new volume fits, why
+    a claim is Pending, how far a claim can grow and what deleting a node
+    removes. Unofficial, not affiliated with the TopoLVM project.
+    See https://github.com/EsDmitrii/kubectl-topolvm#readme
+  caveats: |
+    The built-in view role does not cover nodes, PersistentVolumes or
+    LogicalVolumes. Print the read-only roles the plugin needs and check them:
+      kubectl topolvm rbac | kubectl apply -f -
+      kubectl topolvm rbac --check
+    --metrics and volumes --usage need more: kubectl topolvm rbac --with metrics,usage
+  platforms:
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_linux_amd64.tar.gz
+      sha256: "{{SHA256_LINUX_AMD64}}"
+      files:
+        - from: kubectl-topolvm
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm
+    - selector:
+        matchLabels:
+          os: linux
+          arch: arm64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_linux_arm64.tar.gz
+      sha256: "{{SHA256_LINUX_ARM64}}"
+      files:
+        - from: kubectl-topolvm
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_darwin_amd64.tar.gz
+      sha256: "{{SHA256_DARWIN_AMD64}}"
+      files:
+        - from: kubectl-topolvm
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: arm64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_darwin_arm64.tar.gz
+      sha256: "{{SHA256_DARWIN_ARM64}}"
+      files:
+        - from: kubectl-topolvm
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm
+    - selector:
+        matchLabels:
+          os: windows
+          arch: amd64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_windows_amd64.zip
+      sha256: "{{SHA256_WINDOWS_AMD64}}"
+      files:
+        - from: kubectl-topolvm.exe
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm.exe
+    - selector:
+        matchLabels:
+          os: windows
+          arch: arm64
+      uri: https://github.com/EsDmitrii/kubectl-topolvm/releases/download/v{{VERSION}}/kubectl-topolvm_{{VERSION}}_windows_arm64.zip
+      sha256: "{{SHA256_WINDOWS_ARM64}}"
+      files:
+        - from: kubectl-topolvm.exe
+          to: .
+        - from: LICENSE
+          to: .
+      bin: kubectl-topolvm.exe

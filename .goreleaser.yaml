@@ -1,0 +1,61 @@
+---
+version: 2
+
+builds:
+  - id: kubectl-topolvm
+    main: ./cmd/kubectl-topolvm
+    binary: kubectl-topolvm
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/EsDmitrii/kubectl-topolvm/internal/version.Version={{.Version}}
+      - -X github.com/EsDmitrii/kubectl-topolvm/internal/version.Commit={{.Commit}}
+      - -X github.com/EsDmitrii/kubectl-topolvm/internal/version.Date={{.CommitDate}}
+
+archives:
+  - id: kubectl-topolvm
+    ids: [kubectl-topolvm]
+    formats: [tar.gz]
+    # krew on Windows installs only .exe entrypoints, and zip is what Windows users expect.
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    name_template: "kubectl-topolvm_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    # Commit time and a fixed owner instead of the builder's, so anyone can rebuild the same bytes.
+    builds_info:
+      owner: root
+      group: root
+      mode: 0755
+      mtime: "{{ .CommitDate }}"
+    files:
+      - src: LICENSE
+        info:
+          owner: root
+          group: root
+          mode: 0644
+          mtime: "{{ .CommitDate }}"
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  disable: true
+
+release:
+  github:
+    owner: EsDmitrii
+    name: kubectl-topolvm
+  prerelease: auto
+  # Created as a draft: GitHub immutable releases seal assets at publish time.
+  draft: true

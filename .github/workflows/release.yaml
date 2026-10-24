@@ -1,0 +1,174 @@
+---
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yaml
+
+  draft:
+    name: Build and draft release
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # goreleaser creates the draft release and uploads assets
+      id-token: write          # build provenance attestation (OIDC)
+      attestations: write
+      artifact-metadata: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # No restored cache: a Go cache entry is writable by any job that runs on main.
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      # The release body is this tag's CHANGELOG section; a prerelease (v1.1.0-rc.1) ships the
+      # section of the release it previews. A missing section fails before anything is built.
+      - name: Extract release notes
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          version="${version%%-*}"
+          awk -v want="## v${version}" '
+            $0 == want {found = 1; next}
+            found && /^## v/ {exit}
+            found {print}
+          ' CHANGELOG.md > /tmp/release-notes.md
+          if [ ! -s /tmp/release-notes.md ]; then
+            echo "CHANGELOG.md has no '## v${version}' section; add it before tagging." >&2
+            exit 1
+          fi
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@f06c13b6b1a9625abc9e6e439d9c05a8f2190e94 # v7.2.3
+        with:
+          version: v2.18.2
+          args: release --clean --release-notes /tmp/release-notes.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # A stable tag usually shares its commit with the last rc, and goreleaser would pick the rc.
+          GORELEASER_CURRENT_TAG: ${{ github.ref_name }}
+
+      - name: Attest build provenance
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-checksums: ./dist/checksums.txt
+
+      - name: Render and upload krew manifest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          ./krew/render-manifest.sh "$VERSION" dist topolvm.yaml
+          gh release upload "$GITHUB_REF_NAME" topolvm.yaml --clobber
+
+  publish:
+    name: Publish release
+    needs: draft
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      latest: ${{ steps.newest.outputs.latest }}
+    steps:
+      - name: Check this is the newest stable release
+        id: newest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -o pipefail
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            echo "latest=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          published=$(gh release list --exclude-drafts --exclude-pre-releases --limit 1000 \
+            --json tagName --jq '.[].tagName')
+          newest=$(printf '%s\n%s\n' "$published" "$GITHUB_REF_NAME" | grep -v -- - | sort -V | tail -n 1)
+          if [ "$newest" = "$GITHUB_REF_NAME" ]; then
+            echo "latest=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::${newest} is newer; ${GITHUB_REF_NAME} leaves the Latest badge and krew alone"
+            echo "latest=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LATEST: ${{ steps.newest.outputs.latest }}
+        run: |
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            gh release edit "$GITHUB_REF_NAME" --draft=false
+          elif [ "$LATEST" = true ]; then
+            gh release edit "$GITHUB_REF_NAME" --draft=false --latest
+          else
+            gh release edit "$GITHUB_REF_NAME" --draft=false --latest=false
+          fi
+
+  # The bot cannot submit a new plugin (krew-index closes such PRs), so the first version goes in
+  # by hand and the repository variable KREW_INDEXED=true turns this job on afterwards.
+  krew:
+    name: Open krew-index bump PR
+    needs: publish
+    if: ${{ needs.publish.outputs.latest == 'true' && vars.KREW_INDEXED == 'true' }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: release-krew-${{ github.repository }}
+      cancel-in-progress: false
+    permissions:
+      contents: read
+    env:
+      KREW_VERSION: v0.4.5
+    steps:
+      - name: Fetch krew manifest from the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release download "$GITHUB_REF_NAME" --pattern topolvm.yaml
+
+      # No checkout here, so no go.mod: the version is pinned with the toolchain line of go.mod.
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.27.3"
+          cache: false
+
+      # Installs every platform from the published URLs, as krew-index CI will.
+      - name: Validate the manifest against the published assets
+        run: |
+          set -euo pipefail
+          go install "sigs.k8s.io/krew/cmd/validate-krew-manifest@${KREW_VERSION}"
+          work=$(mktemp -d)
+          base="https://github.com/kubernetes-sigs/krew/releases/download/${KREW_VERSION}"
+          (
+            cd "$work"
+            curl -fsSLO "$base/krew.yaml"
+            curl -fsSLO "$base/krew-linux_amd64.tar.gz"
+            curl -fsSLO "$base/krew-linux_amd64.tar.gz.sha256"
+            echo "$(cat krew-linux_amd64.tar.gz.sha256)  krew-linux_amd64.tar.gz" | sha256sum -c -
+            tar zxf krew-linux_amd64.tar.gz
+            ./krew-linux_amd64 install --manifest=krew.yaml --archive=krew-linux_amd64.tar.gz
+          )
+          export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+          "$(go env GOPATH)/bin/validate-krew-manifest" -manifest topolvm.yaml
+
+      # The image the v0.0.51 action runs (its action.yml names the mutable tag v0.0.50), by digest.
+      - name: Open krew-index bump PR
+        # yamllint disable-line rule:line-length
+        uses: docker://ghcr.io/rajatjindal/krew-release-bot@sha256:6932be48286bacb7a7e45d375ded48a97e7edc36959cd693473b8d08730d62ba
+        env:
+          INPUT_KREW_TEMPLATE_FILE: topolvm.yaml

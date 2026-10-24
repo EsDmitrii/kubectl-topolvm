@@ -1,0 +1,226 @@
+---
+name: CI
+
+on:
+  workflow_call:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@ba0d7d2ec06a0ea1cb5fa41b2e4a3ab91d21278a # v9
+        with:
+          version: v2.14.0
+          install-mode: goinstall
+          cache-invalidation-interval: 7
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: go.mod is tidy
+        run: go mod tidy -diff
+
+      - name: Run tests
+        run: go test -race -count=1 ./...
+
+  build:
+    name: Build ${{ matrix.goos }}/${{ matrix.goarch }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64, arm64]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: "0"
+        run: go build -trimpath -o /dev/null ./cmd/kubectl-topolvm
+
+  govulncheck:
+    name: Vulnerability scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Run govulncheck
+        run: |
+          go install golang.org/x/vuln/cmd/govulncheck@v1.8.0
+          govulncheck ./...
+
+  # A kind cluster with TopoLVM on loop-backed volume groups, every anomaly the plugin checks for
+  # planted on it, and every command checked against it; then the same under the legacy driver name.
+  e2e:
+    name: E2E ${{ matrix.legacy == '1' && '(legacy driver)' || '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        legacy: ["0", "1"]
+    env:
+      KIND_VERSION: v0.33.0
+      HELM_VERSION: v4.3.1
+      LEGACY: ${{ matrix.legacy }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Install tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq lvm2 thin-provisioning-tools jq >/dev/null
+          sudo modprobe dm_thin_pool
+          go install "sigs.k8s.io/kind@${KIND_VERSION}"
+          tmp=$(mktemp -d)
+          url="https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz"
+          curl -fsSLo "$tmp/helm.tar.gz" "$url"
+          echo "$(curl -fsSL "$url.sha256sum" | cut -d' ' -f1)  $tmp/helm.tar.gz" | sha256sum -c -
+          tar -C "$tmp" -xzf "$tmp/helm.tar.gz"
+          sudo install -m 0755 "$tmp/linux-amd64/helm" /usr/local/bin/helm
+          go build -trimpath -o "$RUNNER_TEMP/kubectl-topolvm" ./cmd/kubectl-topolvm
+
+      - name: Build the cluster
+        run: ./hack/e2e/setup.sh
+
+      - name: Plant workloads and anomalies
+        run: ./hack/e2e/scenarios.sh
+
+      - name: Check every command
+        env:
+          KT: ${{ runner.temp }}/kubectl-topolvm
+        run: ./hack/e2e/verify.sh
+
+      - name: Cluster state on failure
+        if: failure()
+        run: |
+          export KUBECONFIG=/var/tmp/topolvm-e2e/kubeconfig
+          kubectl get nodes,pods -A -o wide || true
+          kubectl get pvc,pv,logicalvolumes.topolvm.io,logicalvolumes.topolvm.cybozu.com -A || true
+          sudo lvs || true
+
+  krew:
+    name: Krew manifest
+    runs-on: ubuntu-latest
+    env:
+      KREW_VERSION: v0.4.5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      # A stand-in version and dummy archives: every placeholder is replaced, every platform is
+      # referenced, and a missing archive fails the render instead of leaving an empty sha256.
+      - name: Render with dummy archives
+        run: |
+          set -euo pipefail
+          tmp=$(mktemp -d)
+          for a in linux_amd64.tar.gz linux_arm64.tar.gz darwin_amd64.tar.gz darwin_arm64.tar.gz \
+            windows_amd64.zip windows_arm64.zip; do
+            echo dummy > "$tmp/kubectl-topolvm_9.9.9_${a}"
+          done
+          ./krew/render-manifest.sh 9.9.9 "$tmp" "$tmp/topolvm.yaml"
+          grep -Eq '^\s*version:\s*"?v9\.9\.9"?' "$tmp/topolvm.yaml" \
+            || { echo "::error::krew manifest version must be v-prefixed"; exit 1; }
+          if grep -q '{{' "$tmp/topolvm.yaml"; then
+            echo "::error::unsubstituted placeholder in krew manifest"; exit 1
+          fi
+          sums=$(grep -Ec '^\s*sha256:\s*"[0-9a-f]{64}"\s*$' "$tmp/topolvm.yaml" || true)
+          if [ "$sums" -ne 6 ]; then
+            echo "::error::want six 64-hex sha256 entries in the krew manifest, got ${sums}"; exit 1
+          fi
+          rm "$tmp/kubectl-topolvm_9.9.9_windows_arm64.zip"
+          if ./krew/render-manifest.sh 9.9.9 "$tmp" "$tmp/missing.yaml"; then
+            echo "::error::render-manifest.sh succeeded with the windows_arm64 archive missing"; exit 1
+          fi
+
+      - name: Build snapshot archives
+        uses: goreleaser/goreleaser-action@f06c13b6b1a9625abc9e6e439d9c05a8f2190e94 # v7.2.3
+        with:
+          version: v2.18.2
+          args: release --snapshot --clean
+
+      # The manifest is rendered from the real archives, validated the way krew-index CI does, and
+      # the linux/amd64 archive is installed through krew and run.
+      - name: Install from the snapshot through krew
+        run: |
+          set -euo pipefail
+          version=$(jq -r .version dist/metadata.json)
+          ./krew/render-manifest.sh "$version" dist topolvm.yaml
+          go install "sigs.k8s.io/krew/cmd/validate-krew-manifest@${KREW_VERSION}"
+          "$(go env GOPATH)/bin/validate-krew-manifest" -manifest topolvm.yaml -skip-install
+          work=$(mktemp -d)
+          base="https://github.com/kubernetes-sigs/krew/releases/download/${KREW_VERSION}"
+          (
+            cd "$work"
+            curl -fsSLO "$base/krew.yaml"
+            curl -fsSLO "$base/krew-linux_amd64.tar.gz"
+            curl -fsSLO "$base/krew-linux_amd64.tar.gz.sha256"
+            echo "$(cat krew-linux_amd64.tar.gz.sha256)  krew-linux_amd64.tar.gz" | sha256sum -c -
+            tar zxf krew-linux_amd64.tar.gz
+            ./krew-linux_amd64 install --manifest=krew.yaml --archive=krew-linux_amd64.tar.gz
+          )
+          export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+          kubectl krew install --manifest=topolvm.yaml --archive="dist/kubectl-topolvm_${version}_linux_amd64.tar.gz"
+          kubectl topolvm version
+          kubectl topolvm --help | grep -q "^  kubectl topolvm \[flags\]$"

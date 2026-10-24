@@ -1,0 +1,240 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":dependencyDashboard"
+  ],
+  "timezone": "Europe/Moscow",
+  "schedule": [
+    "after 2am and before 6am"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "prConcurrentLimit": 4,
+  "prHourlyLimit": 2,
+  "rebaseWhen": "behind-base-branch",
+  "configMigration": true,
+  "dependencyDashboardTitle": "Renovate: dependency dashboard",
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": false,
+  "minimumReleaseAge": "3 days",
+  "postUpdateOptions": [
+    "gomodTidy"
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": [
+      "at any time"
+    ],
+    "minimumReleaseAge": null,
+    "labels": [
+      "dependencies",
+      "security"
+    ]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "govulncheck is installed by version inside workflow run blocks, which no built-in manager reads.",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "go install golang\\.org/x/vuln/cmd/govulncheck@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "golang.org/x/vuln",
+      "datasourceTemplate": "go"
+    },
+    {
+      "customType": "regex",
+      "description": "krew and validate-krew-manifest follow the version krew-index CI uses.",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "KREW_VERSION: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "kubernetes-sigs/krew",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "kind and helm for the e2e job are installed by version in a run block.",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "KIND_VERSION: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "kubernetes-sigs/kind",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "helm for the e2e job.",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "HELM_VERSION: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "helm/helm",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "The TopoLVM chart and the snapshot controller the e2e cluster runs.",
+      "managerFilePatterns": [
+        "/^hack/e2e/setup\\.sh$/"
+      ],
+      "matchStrings": [
+        "CHART_VERSION:-(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "topolvm",
+      "datasourceTemplate": "helm",
+      "registryUrlTemplate": "https://topolvm.github.io/topolvm"
+    },
+    {
+      "customType": "regex",
+      "description": "The snapshot controller of the e2e cluster.",
+      "managerFilePatterns": [
+        "/^hack/e2e/setup\\.sh$/"
+      ],
+      "matchStrings": [
+        "SNAPSHOTTER_VERSION:-(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "kubernetes-csi/external-snapshotter",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "The workload image of the e2e scenarios.",
+      "managerFilePatterns": [
+        "/^hack/e2e/scenarios\\.sh$/"
+      ],
+      "matchStrings": [
+        "image: (?<depName>busybox):(?<currentValue>[0-9.]+)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Majors wait for a human on the dependency dashboard.",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false,
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Go modules, k8s.io in one PR with the rest; automerged once CI is green.",
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
+      "groupName": "go-deps",
+      "automerge": true
+    },
+    {
+      "description": "Go toolchain patches carry the CVE fixes and automerge; a language minor waits for a human.",
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchDepNames": [
+        "go"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "groupName": "go toolchain",
+      "automerge": true
+    },
+    {
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchDepNames": [
+        "go"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "groupName": "go toolchain",
+      "automerge": false
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
+      "groupName": "github-actions",
+      "automerge": true
+    },
+    {
+      "matchManagers": [
+        "pre-commit"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "pre-commit hooks",
+      "automerge": true
+    },
+    {
+      "description": "A golangci-lint minor ships new linters and new failures, so only patches automerge.",
+      "matchDepTypes": [
+        "uses-with"
+      ],
+      "matchPackageNames": [
+        "golangci/golangci-lint"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "groupName": "ci tooling",
+      "automerge": false
+    },
+    {
+      "description": "Release-only tooling first runs on a tag, never on a PR, so nothing here automerges.",
+      "matchPackageNames": [
+        "goreleaser/goreleaser-action",
+        "goreleaser/goreleaser",
+        "rajatjindal/krew-release-bot",
+        "actions/attest",
+        "kubernetes-sigs/krew"
+      ],
+      "groupName": "release tooling",
+      "automerge": false
+    },
+    {
+      "description": "The e2e cluster's components; the e2e job proves an update, so patches and minors automerge.",
+      "matchPackageNames": [
+        "kubernetes-sigs/kind",
+        "helm/helm",
+        "topolvm",
+        "kubernetes-csi/external-snapshotter",
+        "busybox"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "e2e cluster",
+      "automerge": true
+    }
+  ]
+}
