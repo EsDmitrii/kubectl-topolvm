@@ -166,9 +166,10 @@ jobs:
           export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
           "$(go env GOPATH)/bin/validate-krew-manifest" -manifest topolvm.yaml
 
-      # The image the v0.0.51 action runs (its action.yml names the mutable tag v0.0.50), by digest.
+      # The image the v0.0.51 action runs (its action.yml names the mutable tag v0.0.50), by tag and
+      # digest so that Renovate follows the tag instead of moving the digest to latest.
       - name: Open krew-index bump PR
         # yamllint disable-line rule:line-length
-        uses: docker://ghcr.io/rajatjindal/krew-release-bot@sha256:6932be48286bacb7a7e45d375ded48a97e7edc36959cd693473b8d08730d62ba
+        uses: docker://ghcr.io/rajatjindal/krew-release-bot:v0.0.50@sha256:6932be48286bacb7a7e45d375ded48a97e7edc36959cd693473b8d08730d62ba
         env:
           INPUT_KREW_TEMPLATE_FILE: topolvm.yaml

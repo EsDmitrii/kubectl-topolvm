@@ -215,7 +215,8 @@
         "goreleaser/goreleaser",
         "rajatjindal/krew-release-bot",
         "actions/attest",
-        "kubernetes-sigs/krew"
+        "kubernetes-sigs/krew",
+        "ghcr.io/rajatjindal/krew-release-bot"
       ],
       "groupName": "release tooling",
       "automerge": false
