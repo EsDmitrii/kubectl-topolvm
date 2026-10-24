@@ -1,0 +1,4 @@
+dist/
+/kubectl-topolvm
+*.exe
+.superpowers/

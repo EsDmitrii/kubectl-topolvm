@@ -1,0 +1,38 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "topolvm-node-node-a",
+        "namespace": "topolvm-system"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "t",
+            "name": "topolvm-node",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "name": "metrics"
+              }
+            ]
+          }
+        ],
+        "nodeName": "node-a"
+      },
+      "status": {
+        "conditions": [
+          {
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "phase": "Running"
+      }
+    }
+  ],
+  "kind": "PodList"
+}

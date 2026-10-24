@@ -1,0 +1,2 @@
+NODE     DEVICE-CLASS    TYPE   SIZE    USED   FREE    USE%   LVS   VG          SPARE
+node-a   ssd (default)   ?      110Gi   10Gi   100Gi   9%     1     <unknown>   <unknown>

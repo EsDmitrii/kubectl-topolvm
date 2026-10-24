@@ -1,0 +1,65 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "creationTimestamp": "2026-10-24T11:00:00Z",
+        "name": "big",
+        "namespace": "ns-a",
+        "uid": "pvc-uid-ns-a-big"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "100Gi"
+          }
+        },
+        "storageClassName": "topolvm-wffc"
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "grow",
+        "namespace": "ns-a",
+        "uid": "pvc-uid-ns-a-grow"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "20Gi"
+          }
+        },
+        "storageClassName": "topolvm-wffc",
+        "volumeName": "pvc-grow"
+      },
+      "status": {
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-24T11:00:00Z",
+            "status": "True",
+            "type": "Resizing"
+          }
+        ],
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "PersistentVolumeClaimList"
+}

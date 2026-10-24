@@ -1,0 +1,1313 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-3",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-23T16:32:20Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-2",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-1"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-4",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-23T16:31:54Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-2",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-2"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-5",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-23T15:46:42Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-3",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-7"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-6",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-23T14:31:10Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-4",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-8"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-7",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-23T16:00:33Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-5",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-15"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-3"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-8",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-23T15:57:18Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-6",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-4"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-16"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-9",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-23T15:53:39Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-7",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-9"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-10",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-23T16:19:08Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-7",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-10"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-11",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-23T16:06:20Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-7",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-11"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-12",
+        "namespace": "ns-5",
+        "creationTimestamp": "2026-10-23T17:24:36Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-8",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-23"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-13",
+        "namespace": "ns-6",
+        "creationTimestamp": "2026-10-23T14:28:17Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-9",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-12"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-13"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-14",
+        "namespace": "ns-7",
+        "creationTimestamp": "2026-10-23T15:46:49Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-10",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-14"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-15",
+        "namespace": "ns-8",
+        "creationTimestamp": "2026-10-23T15:00:43Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-11",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-26"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-19",
+        "namespace": "ns-9",
+        "creationTimestamp": "2026-10-23T14:45:31Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-14",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-21"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-16",
+        "namespace": "ns-11",
+        "creationTimestamp": "2026-10-23T16:05:56Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-12",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-17"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-17",
+        "namespace": "ns-11",
+        "creationTimestamp": "2026-10-23T15:53:26Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-12",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-18"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-16",
+        "namespace": "ns-10",
+        "creationTimestamp": "2026-10-23T16:18:35Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-12",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-17"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-17",
+        "namespace": "ns-10",
+        "creationTimestamp": "2026-10-23T16:30:03Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-12",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-18"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-1",
+        "namespace": "ns-12",
+        "creationTimestamp": "2026-10-23T14:42:13Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-1",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-5"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-2",
+        "namespace": "ns-12",
+        "creationTimestamp": "2026-10-23T14:41:36Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-1",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-6"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-20",
+        "namespace": "ns-12",
+        "creationTimestamp": "2026-10-23T15:23:06Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-15",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-22"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-18",
+        "namespace": "ns-13",
+        "creationTimestamp": "2026-10-23T17:23:28Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-13",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-19"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-21",
+        "namespace": "ns-15",
+        "creationTimestamp": "2026-10-23T15:46:48Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-16",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-24"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-22",
+        "namespace": "ns-15",
+        "creationTimestamp": "2026-10-23T16:12:00Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-17",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-20"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-21",
+        "namespace": "ns-14",
+        "creationTimestamp": "2026-10-23T15:46:48Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-16",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-24"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-22",
+        "namespace": "ns-14",
+        "creationTimestamp": "2026-10-23T16:21:43Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "StatefulSet",
+            "name": "owner-17",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-20"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-23",
+        "namespace": "ns-16",
+        "creationTimestamp": "2026-10-23T15:47:01Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-18",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-25"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-24",
+        "namespace": "ns-17",
+        "creationTimestamp": "2026-10-23T14:55:27Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-19",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-27"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-28"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-25",
+        "namespace": "ns-17",
+        "creationTimestamp": "2026-10-23T14:46:30Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-19",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-29"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-30"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-26",
+        "namespace": "ns-17",
+        "creationTimestamp": "2026-10-23T14:40:19Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "postgresql.cnpg.io/v1",
+            "kind": "Cluster",
+            "name": "owner-19",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-31"
+            }
+          },
+          {
+            "name": "v1",
+            "persistentVolumeClaim": {
+              "claimName": "claim-32"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "pod-27",
+        "namespace": "ns-18",
+        "creationTimestamp": "2026-10-23T15:06:39Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "ReplicaSet",
+            "name": "owner-20",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "claim-33"
+            }
+          }
+        ],
+        "containers": null,
+        "nodeName": "node-1"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    }
+  ],
+  "kind": "PodList"
+}

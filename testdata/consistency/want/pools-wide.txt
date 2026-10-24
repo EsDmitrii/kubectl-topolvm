@@ -1,0 +1,6 @@
+NODE     DEVICE-CLASS    TYPE    SIZE        USED   FREE        USE%        LVS   VG          SPARE
+node-a   ssd (default)   thick   60Gi        10Gi   50Gi        17%         1     vg0         10Gi
+node-a   old             ?       5Gi         0      5Gi         0%          0     <unknown>   <unknown>
+node-b   ssd (default)   thick   40Gi        0      40Gi        0%          0     vg0         10Gi
+node-c   <none>          ?       <unknown>   0      <unknown>   <unknown>   0     <unknown>   <unknown>
+*        ssd (default)   thick   100Gi       10Gi   90Gi        10%         1     -           -

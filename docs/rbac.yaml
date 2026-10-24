@@ -1,0 +1,34 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kubectl-topolvm-view
+rules:
+  - apiGroups: [""]
+    resources: [nodes]
+    verbs: [get, list]
+  - apiGroups: [""]
+    resources: [persistentvolumes, persistentvolumeclaims, pods, events]
+    verbs: [list]
+  - apiGroups: [storage.k8s.io]
+    resources: [csidrivers]
+    verbs: [get]
+  - apiGroups: [storage.k8s.io]
+    resources: [storageclasses, csinodes, csistoragecapacities]
+    verbs: [list]
+  - apiGroups: [topolvm.io]
+    resources: [logicalvolumes]
+    verbs: [list]
+  - apiGroups: [topolvm.cybozu.com]
+    resources: [logicalvolumes]
+    verbs: [list]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: kubectl-topolvm-view
+  namespace: topolvm-system
+rules:
+  - apiGroups: [""]
+    resources: [configmaps, pods]
+    verbs: [list]

@@ -1,0 +1,2 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC     STORAGECLASS   STATUS   AGE   KIND     CURRENT   RECLAIM   LV          VOLUME-ID
+node-a   ssd            1Gi    ns-a        bound   topolvm-wffc   Bound    23d   volume   1Gi       Retain    pvc-bound   00000000-0000-0000-0000-000000000001

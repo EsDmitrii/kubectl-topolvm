@@ -1,0 +1,7 @@
+NODE     DEVICE-CLASS    TYPE    SIZE     USED   FREE     USE%   LVS   VG           SPARE
+node-2   ssd (default)   thick   12.7Gi   1Gi    11.7Gi   8%     1     e2e-w1       1Gi
+node-2   nvme-thin       thin    30Gi     6Gi    24Gi     -      3     e2e-w1       -
+node-3   ssd (default)   thick   19Gi     5Gi    14Gi     26%    4     e2e-w2       1Gi
+node-3   hdd             thick   10Gi     1Gi    9Gi      10%    1     e2e-w2-hdd   0
+node-4   ssd (default)   thick   19Gi     3Gi    16Gi     16%    2     e2e-w3       1Gi
+*        ssd (default)   thick   50.7Gi   9Gi    41.7Gi   18%    7     -            -

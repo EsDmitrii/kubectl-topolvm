@@ -1,0 +1,165 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-0-dzf5z",
+        "namespace": "topolvm-system",
+        "creationTimestamp": "2026-10-24T14:47:59Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "topolvm-lvmd-0",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "config",
+            "configMap": {
+              "name": "topolvm-lvmd-0"
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "lvmd",
+            "ports": [
+              {
+                "name": "metrics",
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {}
+          }
+        ],
+        "nodeName": "node-2"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-1-7m8xm",
+        "namespace": "topolvm-system",
+        "creationTimestamp": "2026-10-24T14:47:59Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "topolvm-lvmd-1",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "config",
+            "configMap": {
+              "name": "topolvm-lvmd-1"
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "lvmd",
+            "ports": [
+              {
+                "name": "metrics",
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {}
+          }
+        ],
+        "nodeName": "node-3"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-2-r8gdm",
+        "namespace": "topolvm-system",
+        "creationTimestamp": "2026-10-24T14:47:59Z",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "topolvm-lvmd-2",
+            "uid": "",
+            "controller": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "config",
+            "configMap": {
+              "name": "topolvm-lvmd-2"
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "lvmd",
+            "ports": [
+              {
+                "name": "metrics",
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {}
+          }
+        ],
+        "nodeName": "node-4"
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": null
+          }
+        ]
+      }
+    }
+  ],
+  "kind": "PodList"
+}

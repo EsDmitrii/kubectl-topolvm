@@ -1,0 +1,9 @@
+NAME               SIZE        USED   FREE        USE%        STATUS
+node-a
+├─ ssd (default)   60Gi        10Gi   50Gi        17%
+│  └─ ns-a/grow    10Gi                                       Bound
+└─ old             5Gi         0      5Gi         0%
+node-b
+└─ ssd (default)   40Gi        0      40Gi        0%
+node-c
+└─ <none>          <unknown>   0      <unknown>   <unknown>

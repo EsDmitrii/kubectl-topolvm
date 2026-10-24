@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "volumes": [
+    {
+      "lv": "pvc-grow",
+      "volumeID": "00000000-0000-0000-0000-000000000001",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-grow",
+      "namespace": "ns-a",
+      "pvc": "grow",
+      "storageClass": "topolvm-wffc",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 10737418240,
+      "currentSizeBytes": 10737418240,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    }
+  ],
+  "warnings": [
+    "node node-c has no capacity.topolvm.io/* annotations: is topolvm-node running there?",
+    "type of device class \"old\" is unknown (not in the lvmd config); USE% assumes thick, pass --thin=old if it is a thin pool"
+  ]
+}

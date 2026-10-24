@@ -1,0 +1,335 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-1",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:05Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-d9e805fa-e99e-42b0-9cd7-cfb069a7c2e5",
+        "storageClassName": "sc-4"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:06Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-2",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:05Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-6382d0f3-1e04-4371-b0cc-0b0f1a7406cc",
+        "storageClassName": "sc-3"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:06Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-3",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:13Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-20cae0b7-d268-4e81-aa9c-d111229ac47a",
+        "storageClassName": "sc-3"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:14Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-5",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:05Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-3ef0724d-fa00-4402-8806-2d43d7a4ec85",
+        "storageClassName": "sc-1"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:06Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-10",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:35Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-a6d1b7f5-78bc-4563-96a3-46865fdc1984",
+        "storageClassName": "sc-5"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:36Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-11",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-24T14:52:05Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-b393c359-6e99-4a75-972f-e06b96e43513",
+        "storageClassName": "sc-5"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:08Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-4",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-24T14:52:36Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-4"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "30Gi"
+          }
+        },
+        "volumeName": "pvc-ed44065e-7d10-4083-a9e3-cabc88f7e969",
+        "storageClassName": "sc-4"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "False",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:38Z"
+          },
+          {
+            "type": "Resizing",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:59:03Z"
+          },
+          {
+            "type": "ControllerResizeError",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:59:03Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-6",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-24T14:52:36Z"
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-9a8b4ada-629d-4e09-86f1-8ebc79fac3ed",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        },
+        "conditions": [
+          {
+            "type": "Unused",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-24T14:52:37Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-7",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-24T14:52:36Z"
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "storageClassName": "sc-4"
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-12",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-24T14:52:36Z"
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "50Gi"
+          }
+        },
+        "storageClassName": "sc-4"
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    }
+  ],
+  "kind": "PersistentVolumeClaimList"
+}

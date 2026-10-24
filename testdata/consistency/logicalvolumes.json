@@ -1,0 +1,27 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-grow",
+        "uid": "00000000-0000-0000-0000-000000000001"
+      },
+      "spec": {
+        "name": "pvc-grow",
+        "nodeName": "node-a",
+        "size": "10Gi"
+      },
+      "status": {
+        "currentSize": "10Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000001"
+      }
+    }
+  ],
+  "kind": "List"
+}

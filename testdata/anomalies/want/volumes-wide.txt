@@ -1,0 +1,13 @@
+NODE        DEVICE-CLASS   SIZE   NAMESPACE   PVC           STORAGECLASS     STATUS     AGE     KIND     CURRENT   RECLAIM   LV        VOLUME-ID
+node-a      ssd            2Gi    ns-x        deleting      topolvm-retain   Deleting   23d     volume   2Gi       Retain    pvc-a7    00000000-0000-0000-0000-000000000007
+node-a      ssd            10Gi   <none>      <none>        <none>           Orphan     4d12h   volume   10Gi      <none>    pvc-a1    00000000-0000-0000-0000-000000000001
+node-a      ssd            1Gi    <none>      <none>        <none>           Orphan     5m      volume   1Gi       <none>    pvc-a2    00000000-0000-0000-0000-000000000002
+node-a      ssd            1Gi    <none>      <none>        <none>           Orphan     0s      volume   1Gi       <none>    pvc-a3    00000000-0000-0000-0000-000000000003
+node-a      ssd            4Gi    <none>      <none>        <none>           Error      3h      volume   <none>    <none>    pvc-a9    <none>
+node-b      ssd            30Gi   ns-x        expand        topolvm-retain   Error      23d     volume   20Gi      Retain    pvc-a10   00000000-0000-0000-0000-000000000010
+node-b      ssd            3Gi    ns-x        recreated     topolvm-retain   Bound      23d     volume   3Gi       Retain    pvc-a12   u-old
+node-b      ssd            20Gi   ns-x        released      topolvm-retain   Released   23d     volume   20Gi      Retain    pvc-a5    00000000-0000-0000-0000-000000000005
+node-b      ssd            20Gi   ns-x        rounded       topolvm-retain   Bound      23d     volume   20Gi      Retain    pvc-a11   00000000-0000-0000-0000-000000000011
+node-b      ssd            6Gi    ns-x        static        topolvm-retain   Bound      23d     volume   6Gi       Retain    pvc-a13   00000000-0000-0000-0000-000000000013
+node-gone   ssd            5Gi    ns-x        gone          topolvm-retain   Bound      23d     volume   5Gi       Retain    pvc-a6    00000000-0000-0000-0000-000000000006
+node-gone   ssd            2Gi    ns-x        pending-del   topolvm-retain   Bound      23d     volume   2Gi       Retain    pvc-a8    00000000-0000-0000-0000-000000000008

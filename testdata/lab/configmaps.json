@@ -1,0 +1,45 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-0",
+        "labels": {
+          "app.kubernetes.io/name": "topolvm"
+        }
+      },
+      "data": {
+        "lvmd.yaml": "socket-name: /run/topolvm/lvmd.sock\ndevice-classes: \n  - default: true\n    name: ssd\n    spare-gb: 1\n    volume-group: e2e-w1\n  - name: nvme-thin\n    thin-pool:\n      name: pool0\n      overprovision-ratio: 5\n    type: thin\n    volume-group: e2e-w1\n"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-1",
+        "labels": {
+          "app.kubernetes.io/name": "topolvm"
+        }
+      },
+      "data": {
+        "lvmd.yaml": "socket-name: /run/topolvm/lvmd.sock\ndevice-classes: \n  - default: true\n    name: ssd\n    spare-gb: 1\n    volume-group: e2e-w2\n  - name: hdd\n    spare-gb: 0\n    volume-group: e2e-w2-hdd\n"
+      }
+    },
+    {
+      "kind": "ConfigMap",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "topolvm-lvmd-2",
+        "labels": {
+          "app.kubernetes.io/name": "topolvm"
+        }
+      },
+      "data": {
+        "lvmd.yaml": "socket-name: /run/topolvm/lvmd.sock\ndevice-classes: \n  - default: true\n    name: ssd\n    spare-gb: 1\n    volume-group: e2e-w3\n"
+      }
+    }
+  ],
+  "kind": "ConfigMapList"
+}

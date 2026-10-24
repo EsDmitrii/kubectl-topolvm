@@ -1,0 +1,4 @@
+CHECK                OBJECT               NODE     SIZE     AGE      DETAIL
+lv-on-missing-node   logicalvolume/lv-1   node-1   1Gi      8m19s    node node-1 no longer exists
+uid-mismatch         logicalvolume/lv-1   node-1   1Gi      8m19s    status.volumeID 00000000-0000-0000-0000-00000000dead differs from metadata.uid bd5bae5b-75de-43bb-a610-b9ee09c64d97: the CR was recreated
+immediate-binding    storageclass/sc-2    <none>   <none>   <none>   volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer

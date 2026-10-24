@@ -1,0 +1,14 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC        STORAGECLASS   STATUS     AGE
+node-1   ssd            1Gi    <none>      <none>     <none>         Orphan     8m19s
+node-2   nvme-thin      2Gi    ns-2        claim-10   sc-5           Bound      8m25s
+node-2   nvme-thin      2Gi    ns-2        claim-11   sc-5           Bound      8m55s
+node-2   ssd            1Gi    ns-2        claim-3    sc-3           Bound      8m47s
+node-2   nvme-thin      2Gi    <none>      <none>     <none>         Snapshot   8m26s
+node-3   ssd            2Gi    ns-2        claim-1    sc-4           Bound      8m55s
+node-3   ssd            1Gi    ns-2        claim-2    sc-3           Bound      8m55s
+node-3   hdd            1Gi    ns-2        claim-5    sc-1           Bound      8m55s
+node-3   ssd            1Gi    ns-3        claim-8    sc-3           Released   8m22s
+node-3   ssd            1Gi    <none>      <none>     <none>         Orphan     8m22s
+node-4   ssd            2Gi    ns-3        claim-4    sc-4           Bound      8m24s
+node-4   ssd            1Gi    ns-3        claim-6    sc-2           Bound      8m24s
+node-4   ssd            1Gi    ns-3        claim-9    sc-4           Deleting   8m21s

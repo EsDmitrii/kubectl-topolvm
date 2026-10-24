@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "pools": [
+    {
+      "node": "node-a",
+      "deviceClass": "vg1",
+      "default": true,
+      "type": "thin",
+      "volumeGroup": "vg1",
+      "spareBytes": null,
+      "sizeBytes": 11811160064,
+      "usedBytes": 1073741824,
+      "freeBytes": 10737418240,
+      "usedPercent": null,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [],
+  "breaches": [],
+  "warnings": [
+    "device class \"vg1\" is thin: SIZE, USED and FREE are virtual (overprovisioned) sizes"
+  ]
+}

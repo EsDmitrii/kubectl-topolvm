@@ -1,0 +1,28 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "allowVolumeExpansion": true,
+      "apiVersion": "storage.k8s.io/v1",
+      "kind": "StorageClass",
+      "metadata": {
+        "name": "topolvm-wffc"
+      },
+      "provisioner": "topolvm.io",
+      "reclaimPolicy": "Delete",
+      "volumeBindingMode": "WaitForFirstConsumer"
+    },
+    {
+      "allowVolumeExpansion": true,
+      "apiVersion": "storage.k8s.io/v1",
+      "kind": "StorageClass",
+      "metadata": {
+        "name": "topolvm-immediate"
+      },
+      "provisioner": "topolvm.io",
+      "reclaimPolicy": "Delete",
+      "volumeBindingMode": "Immediate"
+    }
+  ],
+  "kind": "StorageClassList"
+}

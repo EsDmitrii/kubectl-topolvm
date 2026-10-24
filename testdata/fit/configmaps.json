@@ -1,0 +1,20 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "data": {
+        "lvmd.yaml": "device-classes:\n  - name: ssd\n    volume-group: vg0\n    default: true\n  - name: dc2\n    volume-group: vg1\n"
+      },
+      "kind": "ConfigMap",
+      "metadata": {
+        "labels": {
+          "app.kubernetes.io/name": "topolvm"
+        },
+        "name": "topolvm-lvmd-0",
+        "namespace": "topolvm-system"
+      }
+    }
+  ],
+  "kind": "ConfigMapList"
+}

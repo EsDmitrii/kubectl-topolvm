@@ -1,0 +1,9 @@
+CHECK                    OBJECT                            NODE     SIZE     AGE      DETAIL
+immediate-binding        storageclass/topolvm-immediate    <none>   <none>   <none>   volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer
+capacity-missing         node/node-b                       node-b   <none>   <none>   no CSIStorageCapacity for storageclass topolvm-wffc: the scheduler will skip this node
+capacity-mismatch        node/node-a                       node-a   <none>   <none>   CSIStorageCapacity csisc-a says 60Gi, node annotation says 50Gi: the scheduler may pick this node for volumes that do not fit
+stale-class-annotation   node/node-a                       node-a   <none>   <none>   class old is not in the lvmd config; the annotation may be frozen
+node-without-capacity    node/node-c                       node-c   <none>   <none>   registered with topolvm.io but has no capacity annotations
+topolvm-node-not-ready   node/node-b                       node-b   <none>   <none>   no ready topolvm-node pod
+pvc-pending              persistentvolumeclaim/ns-a/big    <none>   100Gi    60m      Unschedulable: no node has 100Gi free in class ssd (max 50Gi on node-a)
+pvc-resize-stuck         persistentvolumeclaim/ns-a/grow   node-a   20Gi     60m      requested 20Gi, capacity 10Gi; last VolumeResizeFailed: rpc error: code = Internal desc = not enough space

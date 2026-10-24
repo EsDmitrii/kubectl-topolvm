@@ -1,0 +1,20 @@
+{
+  "node-2": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": []
+  },
+  "node-3": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": []
+  },
+  "node-4": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": []
+  }
+}

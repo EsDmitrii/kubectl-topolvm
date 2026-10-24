@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "volumes": [
+    {
+      "lv": "pvc-1",
+      "volumeID": "00000000-0000-0000-0000-000000000001",
+      "node": "node-a",
+      "deviceClass": "dc1",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-1",
+      "namespace": "ns-a",
+      "pvc": "one",
+      "storageClass": "topolvm-retain",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 10737418240,
+      "currentSizeBytes": 10737418240,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    },
+    {
+      "lv": "pvc-2",
+      "volumeID": "00000000-0000-0000-0000-000000000002",
+      "node": "node-a",
+      "deviceClass": "<default>",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-2",
+      "namespace": "ns-a",
+      "pvc": "two",
+      "storageClass": "topolvm-retain",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 1073741824,
+      "currentSizeBytes": 1073741824,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    }
+  ],
+  "warnings": [
+    "node node-a: cannot tell the default device class; volumes without deviceClass are shown as <default>",
+    "node node-a: ignoring unparsable annotation capacity.topolvm.io/broken",
+    "node node-b has no capacity.topolvm.io/* annotations: is topolvm-node running there?",
+    "type of device class \"dc1\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=dc1 if it is a thin pool",
+    "type of device class \"dc2\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=dc2 if it is a thin pool"
+  ]
+}

@@ -1,0 +1,12 @@
+CHECK                OBJECT                    NODE        SIZE     AGE      DETAIL
+orphan-lv            logicalvolume/pvc-a1      node-a      10Gi     4d12h    no PersistentVolume with volumeHandle 00000000-0000-0000-0000-000000000001
+pv-without-lv        persistentvolume/pvc-a4   node-b      <none>   36h      no LogicalVolume with volumeID uid-missing
+released-pv          persistentvolume/pvc-a5   node-b      20Gi     <none>   PV is Released (reclaimPolicy Retain), the LV still holds the space
+lv-on-missing-node   logicalvolume/pvc-a6      node-gone   5Gi      23d      node node-gone no longer exists
+lv-on-missing-node   logicalvolume/pvc-a8      node-gone   2Gi      23d      node node-gone no longer exists
+stuck-deletion       logicalvolume/pvc-a7      node-a      2Gi      120m     deletion requested 120m ago, finalizers: topolvm.io/logicalvolume
+pending-deletion     logicalvolume/pvc-a8      node-gone   2Gi      23d      topolvm.io/pendingdeletion is set but finalizer topolvm.io/logicalvolume is still there
+lv-error             logicalvolume/pvc-a9      node-a      <none>   3h       create of 4Gi failed: ResourceExhausted: not enough space
+lv-error             logicalvolume/pvc-a10     node-b      20Gi     23d      expand failed: Internal: not enough space
+resize-pending       logicalvolume/pvc-a10     node-b      30Gi     179m     spec.size 30Gi, current 20Gi
+uid-mismatch         logicalvolume/pvc-a12     node-b      3Gi      23d      status.volumeID u-old differs from metadata.uid u-new: the CR was recreated

@@ -1,0 +1,5 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC         STORAGECLASS     STATUS     AGE
+node-a   ssd            50Gi   ns-a        data-db-0   topolvm-retain   Bound      23d
+node-a   ssd            80Gi   ns-a        data-ha-0   topolvm-retain   Bound      23d
+node-a   ssd            10Gi   ns-a        old         topolvm-retain   Released   23d
+node-b   ssd            80Gi   ns-a        data-ha-1   topolvm-retain   Bound      23d

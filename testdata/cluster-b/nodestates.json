@@ -1,0 +1,46 @@
+{
+  "node-1": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": [
+      {
+        "key": "db",
+        "effect": "NoSchedule"
+      }
+    ]
+  },
+  "node-2": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": [
+      {
+        "key": "db",
+        "effect": "NoSchedule"
+      }
+    ]
+  },
+  "node-3": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": [
+      {
+        "key": "db",
+        "effect": "NoSchedule"
+      }
+    ]
+  },
+  "node-4": {
+    "ready": true,
+    "unschedulable": false,
+    "hasFinalizer": true,
+    "taints": [
+      {
+        "key": "gpu",
+        "effect": "NoSchedule"
+      }
+    ]
+  }
+}

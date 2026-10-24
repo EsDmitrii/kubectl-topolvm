@@ -1,0 +1,5 @@
+CHECK               OBJECT                            NODE     SIZE     AGE      DETAIL
+immediate-binding   storageclass/topolvm-immediate    <none>   <none>   <none>   volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer
+pvc-pending         persistentvolumeclaim/ns-a/big    <none>   100Gi    60m      Unschedulable: no node has 100Gi free in class ssd (max 50Gi on node-a)
+pvc-pending         persistentvolumeclaim/ns-a/imm    <none>   5Gi      60m      Immediate: StorageClass topolvm-immediate uses Immediate binding; TopoLVM recommends WaitForFirstConsumer
+pvc-pending         persistentvolumeclaim/ns-a/prov   node-b   30Gi     60m      Provisioning: node-b has only 20Gi free in class ssd

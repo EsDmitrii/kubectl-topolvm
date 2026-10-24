@@ -1,0 +1,11 @@
+NAME                   SIZE    USED    FREE    USE%   STATUS
+node-a
+└─ ssd (default)       240Gi   140Gi   100Gi   58%
+   ├─ ns-a/data-db-0   50Gi                           Bound
+   ├─ ns-a/data-ha-0   80Gi                           Bound
+   └─ ns-a/old         10Gi                           Released
+node-b
+└─ ssd (default)       140Gi   80Gi    60Gi    57%
+   └─ ns-a/data-ha-1   80Gi                           Bound
+node-c
+└─ ssd (default)       40Gi    0       40Gi    0%

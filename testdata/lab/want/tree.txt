@@ -1,0 +1,21 @@
+NAME                                                             SIZE     USED   FREE     USE%   STATUS
+node-2
+├─ ssd (default)                                                 12.7Gi   1Gi    11.7Gi   8%
+│  └─ ns-2/claim-3                                               1Gi                             Bound
+└─ nvme-thin                                                     30Gi     6Gi    24Gi     -
+   ├─ ns-2/claim-10                                              2Gi                             Bound
+   ├─ ns-2/claim-11                                              2Gi                             Bound
+   └─ <snapshot> snapshot-2cc799c0-a0e2-45b2-b28b-ac9bcc30cc75   2Gi                             Snapshot
+node-3
+├─ ssd (default)                                                 19Gi     5Gi    14Gi     26%
+│  ├─ ns-2/claim-1                                               2Gi                             Bound
+│  ├─ ns-2/claim-2                                               1Gi                             Bound
+│  ├─ ns-3/claim-8                                               1Gi                             Released
+│  └─ <orphan> pvc-1ba55d3e-e770-4c03-825b-74c49a0c4067          1Gi                             Orphan
+└─ hdd                                                           10Gi     1Gi    9Gi      10%
+   └─ ns-2/claim-5                                               1Gi                             Bound
+node-4
+└─ ssd (default)                                                 19Gi     3Gi    16Gi     16%
+   ├─ ns-3/claim-4                                               2Gi                             Bound
+   ├─ ns-3/claim-6                                               1Gi                             Bound
+   └─ ns-3/claim-9                                               1Gi                             Deleting

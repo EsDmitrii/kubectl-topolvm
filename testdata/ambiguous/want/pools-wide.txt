@@ -1,0 +1,5 @@
+NODE     DEVICE-CLASS   TYPE   SIZE        USED   FREE        USE%        LVS   VG          SPARE
+node-a   <default>      ?      <unknown>   1Gi    <unknown>   <unknown>   1     <unknown>   <unknown>
+node-a   dc1            ?      110Gi       10Gi   100Gi       9%          1     <unknown>   <unknown>
+node-a   dc2            ?      100Gi       0      100Gi       0%          0     <unknown>   <unknown>
+node-b   <none>         ?      <unknown>   0      <unknown>   <unknown>   0     <unknown>   <unknown>

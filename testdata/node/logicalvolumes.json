@@ -1,0 +1,90 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-db0",
+        "uid": "00000000-0000-0000-0000-000000000001"
+      },
+      "spec": {
+        "name": "pvc-db0",
+        "nodeName": "node-a",
+        "size": "50Gi"
+      },
+      "status": {
+        "currentSize": "50Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000001"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-ha0",
+        "uid": "00000000-0000-0000-0000-000000000002"
+      },
+      "spec": {
+        "name": "pvc-ha0",
+        "nodeName": "node-a",
+        "size": "80Gi"
+      },
+      "status": {
+        "currentSize": "80Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000002"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-ha1",
+        "uid": "00000000-0000-0000-0000-000000000003"
+      },
+      "spec": {
+        "name": "pvc-ha1",
+        "nodeName": "node-b",
+        "size": "80Gi"
+      },
+      "status": {
+        "currentSize": "80Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000003"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-old",
+        "uid": "00000000-0000-0000-0000-000000000004"
+      },
+      "spec": {
+        "name": "pvc-old",
+        "nodeName": "node-a",
+        "size": "10Gi"
+      },
+      "status": {
+        "currentSize": "10Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000004"
+      }
+    }
+  ],
+  "kind": "List"
+}

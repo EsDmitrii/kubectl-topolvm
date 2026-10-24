@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T14:21:00Z",
+  "pools": [
+    {
+      "node": "node-1",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 338811682816,
+      "usedBytes": 216895848448,
+      "freeBytes": 121915834368,
+      "usedPercent": 64,
+      "volumes": 14,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-2",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 338811682816,
+      "usedBytes": 147102629888,
+      "freeBytes": 191709052928,
+      "usedPercent": 43.4,
+      "volumes": 14,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-3",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 338811682816,
+      "usedBytes": 236223201280,
+      "freeBytes": 102588481536,
+      "usedPercent": 69.7,
+      "volumes": 9,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [
+    {
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "nodes": 3,
+      "sizeBytes": 1016435048448,
+      "usedBytes": 600221679616,
+      "freeBytes": 416213368832,
+      "maxFreeBytes": 191709052928,
+      "maxFreeNode": "node-2",
+      "usedPercent": 59.1,
+      "volumes": 37
+    }
+  ],
+  "breaches": [],
+  "warnings": []
+}

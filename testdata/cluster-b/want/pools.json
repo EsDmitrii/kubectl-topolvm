@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T14:21:00Z",
+  "pools": [
+    {
+      "node": "node-1",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 1927328825344,
+      "usedBytes": 62277025792,
+      "freeBytes": 1865051799552,
+      "usedPercent": 3.2,
+      "volumes": 11,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-2",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 1927328825344,
+      "usedBytes": 81604378624,
+      "freeBytes": 1845724446720,
+      "usedPercent": 4.2,
+      "volumes": 12,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-3",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 1927328825344,
+      "usedBytes": 73014444032,
+      "freeBytes": 1854314381312,
+      "usedPercent": 3.8,
+      "volumes": 12,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-4",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 3060864647168,
+      "usedBytes": 0,
+      "freeBytes": 3060864647168,
+      "usedPercent": 0,
+      "volumes": 0,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [
+    {
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "nodes": 4,
+      "sizeBytes": 8842851123200,
+      "usedBytes": 216895848448,
+      "freeBytes": 8625955274752,
+      "maxFreeBytes": 3060864647168,
+      "maxFreeNode": "node-4",
+      "usedPercent": 2.5,
+      "volumes": 35
+    }
+  ],
+  "breaches": [],
+  "warnings": []
+}

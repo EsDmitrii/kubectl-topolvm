@@ -1,0 +1,2 @@
+CHECK         OBJECT                     NODE     SIZE   AGE      DETAIL
+released-pv   persistentvolume/pvc-old   node-a   10Gi   <none>   PV is Released (reclaimPolicy Retain), the LV still holds the space

@@ -1,0 +1,951 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-1",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T06:03:38Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-7202d5b8-2a7d-497a-a9c4-25c7af56785d",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-2",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T06:14:41Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-33c063bd-e5a3-4d18-988b-588dbf4c4bcc",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-5",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-15T07:35:34Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-ff4fa9fb-e9ae-43a5-a167-f07f2ce6b158",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-6",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-15T07:36:10Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-dc2df0a1-eac8-4fe7-b4fb-1d0bbecf49d2",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-8",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T03:39:49Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-797f7b96-5555-40f4-87a6-51ad390d0288",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-9",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T04:38:29Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-0c434906-3ecf-4d93-b59a-b9ddc81add14",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-12",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T05:41:39Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-3c4f98ac-bc72-4455-8c56-ea25e373a6dc",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-13",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T05:53:10Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-9fced8bb-d7b2-49f1-a12a-1e0bd513c456",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-17",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T03:39:43Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-15da0e0c-d49e-4ab5-88d2-23be8ae3a51c",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-18",
+        "namespace": "ns-2",
+        "creationTimestamp": "2026-10-07T05:09:18Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-9b80fb6b-7c02-4b03-913b-04465ca3cda7",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-1",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-07T06:03:43Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-26f2c9a6-5478-4023-afcd-d1acb2f100ce",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-2",
+        "namespace": "ns-3",
+        "creationTimestamp": "2026-10-07T06:14:47Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "volumeName": "pvc-23717c75-ec48-4327-9a77-6e9ad936e59d",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "1Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-1",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T06:03:33Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-531cdd2b-6bbd-46a2-8cf4-9d6075a5f601",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-2",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T06:14:36Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-c5b4cf0f-f41f-4370-8580-df5f07c0f9ea",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-8",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T03:42:50Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-9fe22123-e52c-420b-93f2-001d962055ac",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-9",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T04:38:24Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-0060e1e8-7a6f-49e3-b4c8-029c3a1a17ac",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-12",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T05:41:34Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-bf46e901-2fb1-47c4-a555-fe39fcde2d26",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-13",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T05:53:05Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-1deead85-a31b-4d27-b1fc-b5c40090c842",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-17",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T03:42:55Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-530cb92d-20a9-4ab1-8e12-934e8417566e",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-18",
+        "namespace": "ns-4",
+        "creationTimestamp": "2026-10-07T05:09:13Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-acf7f3f2-5cf4-4c8f-9f87-fc49329dd314",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-2",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T03:45:33Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-ba033fb8-8c19-44a1-bf47-3b09abab4dc5",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-3",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T04:38:14Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-dd7d622a-1223-463d-8ef0-6fd5d3defaa9",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-4",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:09:02Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-ba6b9013-1546-4bf9-aa56-295ca5daf587",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-5",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-15T07:35:36Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-76e04bfe-65cb-451f-ad51-c1613e952082",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-6",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-15T07:36:10Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-cf607717-8f0e-474e-b8a3-2b5f974b3edd",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-7",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-15T07:37:14Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-962dca1c-db58-4d89-bfd2-f8b623d7ae77",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-9",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T03:45:38Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-7cf9dc50-9ee9-4230-b0dd-cad78a2c6846",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-10",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T04:38:19Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-67241c35-dc38-497c-9c9a-f394ac48fbb5",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-11",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:08:57Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-2ce6420e-83da-4c7b-a45a-8f673e44381b",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-14",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:45:47Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-1b74f74a-5051-4668-8e7a-814137a320df",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-15",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:46:56Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-cb38104f-5e2c-4869-b146-e9fd83276628",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-16",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:48:35Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "2Gi"
+          }
+        },
+        "volumeName": "pvc-2dd5ec80-574c-47db-87f0-851d8217af32",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "2Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-19",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T03:45:44Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-3"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-34de980e-6fbc-47cf-8408-815940937e99",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-20",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T04:38:07Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-2"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-f4533b65-a519-40a5-8295-f13a8a63551f",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "claim-21",
+        "namespace": "ns-1",
+        "creationTimestamp": "2026-10-07T05:09:08Z",
+        "annotations": {
+          "volume.kubernetes.io/selected-node": "node-1"
+        }
+      },
+      "spec": {
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "volumeName": "pvc-dcf44d23-253e-4cea-8771-f541cb1c25de",
+        "storageClassName": "sc-2"
+      },
+      "status": {
+        "phase": "Bound",
+        "capacity": {
+          "storage": "10Gi"
+        }
+      }
+    }
+  ],
+  "kind": "PersistentVolumeClaimList"
+}

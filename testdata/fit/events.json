@@ -1,0 +1,44 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "involvedObject": {
+        "kind": "PersistentVolumeClaim",
+        "name": "data",
+        "namespace": "ns-a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-24T10:00:00Z",
+      "message": "older failure",
+      "metadata": {
+        "name": "data.1",
+        "namespace": "ns-a",
+        "uid": "ev-data.1"
+      },
+      "reason": "VolumeResizeFailed",
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "involvedObject": {
+        "kind": "PersistentVolumeClaim",
+        "name": "data",
+        "namespace": "ns-a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-24T11:00:00Z",
+      "message": "not enough space",
+      "metadata": {
+        "name": "data.2",
+        "namespace": "ns-a",
+        "uid": "ev-data.2"
+      },
+      "reason": "VolumeResizeFailed",
+      "type": "Warning"
+    }
+  ],
+  "kind": "EventList"
+}

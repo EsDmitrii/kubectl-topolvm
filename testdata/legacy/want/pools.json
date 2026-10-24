@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.cybozu.com",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "pools": [
+    {
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 62277025792,
+      "usedBytes": 8589934592,
+      "freeBytes": 53687091200,
+      "usedPercent": 13.8,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [],
+  "breaches": [],
+  "warnings": []
+}

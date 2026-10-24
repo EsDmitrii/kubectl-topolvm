@@ -1,0 +1,8 @@
+{
+  "node-a": {
+    "hasFinalizer": true,
+    "ready": true,
+    "taints": [],
+    "unschedulable": false
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "findings": [
+    {
+      "check": "immediate-binding",
+      "object": "storageclass/topolvm-immediate",
+      "node": "",
+      "deviceClass": "",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer"
+    },
+    {
+      "check": "capacity-missing",
+      "object": "node/node-b",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "no CSIStorageCapacity for storageclass topolvm-wffc: the scheduler will skip this node"
+    },
+    {
+      "check": "capacity-mismatch",
+      "object": "node/node-a",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "CSIStorageCapacity csisc-a says 60Gi, node annotation says 50Gi: the scheduler may pick this node for volumes that do not fit"
+    },
+    {
+      "check": "stale-class-annotation",
+      "object": "node/node-a",
+      "node": "node-a",
+      "deviceClass": "old",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "class old is not in the lvmd config; the annotation may be frozen"
+    },
+    {
+      "check": "node-without-capacity",
+      "object": "node/node-c",
+      "node": "node-c",
+      "deviceClass": "",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "registered with topolvm.io but has no capacity annotations"
+    },
+    {
+      "check": "topolvm-node-not-ready",
+      "object": "node/node-b",
+      "node": "node-b",
+      "deviceClass": "",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "no ready topolvm-node pod"
+    },
+    {
+      "check": "pvc-pending",
+      "object": "persistentvolumeclaim/ns-a/big",
+      "node": "",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 107374182400,
+      "ageSeconds": 3600,
+      "detail": "Unschedulable: no node has 100Gi free in class ssd (max 50Gi on node-a)"
+    },
+    {
+      "check": "pvc-resize-stuck",
+      "object": "persistentvolumeclaim/ns-a/grow",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 21474836480,
+      "ageSeconds": 3600,
+      "detail": "requested 20Gi, capacity 10Gi; last VolumeResizeFailed: rpc error: code = Internal desc = not enough space"
+    }
+  ],
+  "warnings": [
+    "node node-c has no capacity.topolvm.io/* annotations: is topolvm-node running there?",
+    "type of device class \"old\" is unknown (not in the lvmd config); USE% assumes thick, pass --thin=old if it is a thin pool"
+  ]
+}

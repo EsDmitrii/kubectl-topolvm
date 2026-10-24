@@ -1,0 +1,21 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "storage.k8s.io/v1",
+      "capacity": "60Gi",
+      "kind": "CSIStorageCapacity",
+      "metadata": {
+        "name": "csisc-a",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-a"
+        }
+      },
+      "storageClassName": "topolvm-wffc"
+    }
+  ],
+  "kind": "CSIStorageCapacityList"
+}

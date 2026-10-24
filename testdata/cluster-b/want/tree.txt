@@ -1,0 +1,44 @@
+NAME                  SIZE    USED   FREE    USE%   STATUS
+node-1
+└─ ssd (default)      1.8Ti   58Gi   1.7Ti   3%
+   ├─ ns-1/claim-11   10Gi                          Bound
+   ├─ ns-1/claim-14   2Gi                           Bound
+   ├─ ns-1/claim-21   10Gi                          Bound
+   ├─ ns-1/claim-4    10Gi                          Bound
+   ├─ ns-1/claim-5    10Gi                          Bound
+   ├─ ns-2/claim-1    1Gi                           Bound
+   ├─ ns-2/claim-12   1Gi                           Bound
+   ├─ ns-2/claim-5    1Gi                           Bound
+   ├─ ns-3/claim-1    1Gi                           Bound
+   ├─ ns-4/claim-1    10Gi                          Bound
+   └─ ns-4/claim-12   2Gi                           Bound
+node-2
+└─ ssd (default)      1.8Ti   76Gi   1.7Ti   4%
+   ├─ ns-1/claim-10   10Gi                          Bound
+   ├─ ns-1/claim-15   2Gi                           Bound
+   ├─ ns-1/claim-20   10Gi                          Bound
+   ├─ ns-1/claim-3    10Gi                          Bound
+   ├─ ns-1/claim-7    10Gi                          Bound
+   ├─ ns-2/claim-13   1Gi                           Bound
+   ├─ ns-2/claim-18   1Gi                           Bound
+   ├─ ns-2/claim-6    1Gi                           Bound
+   ├─ ns-2/claim-9    1Gi                           Bound
+   ├─ ns-4/claim-18   10Gi                          Bound
+   ├─ ns-4/claim-2    10Gi                          Bound
+   └─ ns-4/claim-9    10Gi                          Bound
+node-3
+└─ ssd (default)      1.8Ti   68Gi   1.7Ti   4%
+   ├─ ns-1/claim-16   2Gi                           Bound
+   ├─ ns-1/claim-19   10Gi                          Bound
+   ├─ ns-1/claim-2    10Gi                          Bound
+   ├─ ns-1/claim-6    10Gi                          Bound
+   ├─ ns-1/claim-9    10Gi                          Bound
+   ├─ ns-2/claim-17   1Gi                           Bound
+   ├─ ns-2/claim-2    1Gi                           Bound
+   ├─ ns-2/claim-8    1Gi                           Bound
+   ├─ ns-3/claim-2    1Gi                           Bound
+   ├─ ns-4/claim-13   2Gi                           Bound
+   ├─ ns-4/claim-17   10Gi                          Bound
+   └─ ns-4/claim-8    10Gi                          Bound
+node-4
+└─ ssd (default)      2.8Ti   0      2.8Ti   0%

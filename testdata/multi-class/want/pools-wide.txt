@@ -1,0 +1,4 @@
+NODE     DEVICE-CLASS    TYPE    SIZE    USED    FREE    USE%   LVS   VG    SPARE
+node-a   dc1 (default)   thick   110Gi   10Gi    100Gi   9%     1     vg0   10Gi
+node-a   dc2             thick   55Gi    5Gi     50Gi    9%     1     vg1   0
+node-a   nvme-thin       thin    1.2Ti   300Gi   900Gi   -      3     vg2   -

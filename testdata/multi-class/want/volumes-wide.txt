@@ -1,0 +1,6 @@
+NODE     DEVICE-CLASS   SIZE    NAMESPACE   PVC      STORAGECLASS     STATUS     AGE   KIND       CURRENT   RECLAIM   LV           VOLUME-ID
+node-a   dc1            10Gi    ns-a        d1       topolvm-retain   Bound      23d   volume     10Gi      Retain    pvc-d1       00000000-0000-0000-0000-000000000001
+node-a   dc2            5Gi     ns-a        d2       topolvm-dc2      Bound      23d   volume     5Gi       Retain    pvc-d2       00000000-0000-0000-0000-000000000002
+node-a   nvme-thin      100Gi   ns-b        clone    topolvm-thin     Bound      23d   clone      100Gi     Retain    pvc-clone    00000000-0000-0000-0000-000000000005
+node-a   nvme-thin      100Gi   ns-b        src      topolvm-thin     Bound      23d   volume     100Gi     Retain    pvc-src      00000000-0000-0000-0000-000000000003
+node-a   nvme-thin      100Gi   <none>      <none>   <none>           Snapshot   23d   snapshot   100Gi     <none>    snapshot-1   00000000-0000-0000-0000-000000000004

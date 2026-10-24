@@ -1,0 +1,13 @@
+NODE        DEVICE-CLASS   SIZE   NAMESPACE   PVC           STORAGECLASS     STATUS     AGE
+node-a      ssd            2Gi    ns-x        deleting      topolvm-retain   Deleting   23d
+node-a      ssd            10Gi   <none>      <none>        <none>           Orphan     4d12h
+node-a      ssd            1Gi    <none>      <none>        <none>           Orphan     5m
+node-a      ssd            1Gi    <none>      <none>        <none>           Orphan     0s
+node-a      ssd            4Gi    <none>      <none>        <none>           Error      3h
+node-b      ssd            30Gi   ns-x        expand        topolvm-retain   Error      23d
+node-b      ssd            3Gi    ns-x        recreated     topolvm-retain   Bound      23d
+node-b      ssd            20Gi   ns-x        released      topolvm-retain   Released   23d
+node-b      ssd            20Gi   ns-x        rounded       topolvm-retain   Bound      23d
+node-b      ssd            6Gi    ns-x        static        topolvm-retain   Bound      23d
+node-gone   ssd            5Gi    ns-x        gone          topolvm-retain   Bound      23d
+node-gone   ssd            2Gi    ns-x        pending-del   topolvm-retain   Bound      23d

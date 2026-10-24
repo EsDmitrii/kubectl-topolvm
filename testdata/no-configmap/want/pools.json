@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "pools": [
+    {
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "unknown",
+      "volumeGroup": null,
+      "spareBytes": null,
+      "sizeBytes": 118111600640,
+      "usedBytes": 10737418240,
+      "freeBytes": 107374182400,
+      "usedPercent": 9.1,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [],
+  "breaches": [],
+  "warnings": [
+    "type of device class \"ssd\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=ssd if it is a thin pool"
+  ]
+}

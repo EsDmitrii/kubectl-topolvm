@@ -1,0 +1,14 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC        STORAGECLASS   STATUS     AGE     KIND       CURRENT   RECLAIM   LV                                              VOLUME-ID
+node-1   ssd            1Gi    <none>      <none>     <none>         Orphan     8m19s   volume     1Gi       <none>    lv-1                                            00000000-0000-0000-0000-00000000dead
+node-2   nvme-thin      2Gi    ns-2        claim-10   sc-5           Bound      8m25s   clone      2Gi       Delete    pvc-a6d1b7f5-78bc-4563-96a3-46865fdc1984        451f5fb3-4309-4b94-ba03-6582d57ee730
+node-2   nvme-thin      2Gi    ns-2        claim-11   sc-5           Bound      8m55s   volume     2Gi       Delete    pvc-b393c359-6e99-4a75-972f-e06b96e43513        cec51118-34d8-408b-ae57-8f429cb4b728
+node-2   ssd            1Gi    ns-2        claim-3    sc-3           Bound      8m47s   volume     1Gi       Retain    pvc-20cae0b7-d268-4e81-aa9c-d111229ac47a        41e3c56c-18a1-4dd7-bf53-05b3a1e6b3fd
+node-2   nvme-thin      2Gi    <none>      <none>     <none>         Snapshot   8m26s   snapshot   2Gi       <none>    snapshot-2cc799c0-a0e2-45b2-b28b-ac9bcc30cc75   cd492253-e38c-4c20-965d-1054b34c93a6
+node-3   ssd            2Gi    ns-2        claim-1    sc-4           Bound      8m55s   volume     2Gi       Delete    pvc-d9e805fa-e99e-42b0-9cd7-cfb069a7c2e5        b0810126-2494-4574-b3dc-af6947590a9c
+node-3   ssd            1Gi    ns-2        claim-2    sc-3           Bound      8m55s   volume     1Gi       Retain    pvc-6382d0f3-1e04-4371-b0cc-0b0f1a7406cc        b72208c1-ab78-446b-9c8f-539e4684c6cc
+node-3   hdd            1Gi    ns-2        claim-5    sc-1           Bound      8m55s   volume     1Gi       Delete    pvc-3ef0724d-fa00-4402-8806-2d43d7a4ec85        23d710c4-1045-4d42-9a76-7d16b622837e
+node-3   ssd            1Gi    ns-3        claim-8    sc-3           Released   8m22s   volume     1Gi       Retain    pvc-debfdf76-89b7-4f19-b2ae-fca657d9fd33        b6a3b319-8d25-4fa7-8ea3-d6ec4e0c55e6
+node-3   ssd            1Gi    <none>      <none>     <none>         Orphan     8m22s   volume     1Gi       <none>    pvc-1ba55d3e-e770-4c03-825b-74c49a0c4067        ce856c77-c03a-4406-94d3-af8145a060bf
+node-4   ssd            2Gi    ns-3        claim-4    sc-4           Bound      8m24s   volume     2Gi       Delete    pvc-ed44065e-7d10-4083-a9e3-cabc88f7e969        c6f3e058-c57b-4352-9806-a07eb95194db
+node-4   ssd            1Gi    ns-3        claim-6    sc-2           Bound      8m24s   volume     1Gi       Delete    pvc-9a8b4ada-629d-4e09-86f1-8ebc79fac3ed        429470a7-f25f-41a2-a5c0-58f51fa35b23
+node-4   ssd            1Gi    ns-3        claim-9    sc-4           Deleting   8m21s   volume     1Gi       Delete    pvc-dfa60ad7-b19f-4c9d-a871-b9759cedd2c9        cbfe611a-d2a9-4e9b-ad97-2090797f5af8

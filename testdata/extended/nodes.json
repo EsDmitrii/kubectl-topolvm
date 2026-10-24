@@ -1,0 +1,20 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "annotations": {
+          "capacity.topolvm.io/00default": "10737418240",
+          "capacity.topolvm.io/vg1": "10737418240"
+        },
+        "labels": {
+          "topology.topolvm.io/node": "node-a"
+        },
+        "name": "node-a"
+      }
+    }
+  ],
+  "kind": "NodeList"
+}

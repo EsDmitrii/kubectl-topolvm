@@ -1,0 +1,178 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "pvc-d1"
+      },
+      "spec": {
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "claimRef": {
+          "name": "d1",
+          "namespace": "ns-a"
+        },
+        "csi": {
+          "driver": "topolvm.io",
+          "volumeHandle": "00000000-0000-0000-0000-000000000001"
+        },
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.topolvm.io/node",
+                    "operator": "In",
+                    "values": [
+                      "node-a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "persistentVolumeReclaimPolicy": "Retain",
+        "storageClassName": "topolvm-retain"
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "pvc-d2"
+      },
+      "spec": {
+        "capacity": {
+          "storage": "5Gi"
+        },
+        "claimRef": {
+          "name": "d2",
+          "namespace": "ns-a"
+        },
+        "csi": {
+          "driver": "topolvm.io",
+          "volumeHandle": "00000000-0000-0000-0000-000000000002"
+        },
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.topolvm.io/node",
+                    "operator": "In",
+                    "values": [
+                      "node-a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "persistentVolumeReclaimPolicy": "Retain",
+        "storageClassName": "topolvm-dc2"
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "pvc-src"
+      },
+      "spec": {
+        "capacity": {
+          "storage": "100Gi"
+        },
+        "claimRef": {
+          "name": "src",
+          "namespace": "ns-b"
+        },
+        "csi": {
+          "driver": "topolvm.io",
+          "volumeHandle": "00000000-0000-0000-0000-000000000003"
+        },
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.topolvm.io/node",
+                    "operator": "In",
+                    "values": [
+                      "node-a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "persistentVolumeReclaimPolicy": "Retain",
+        "storageClassName": "topolvm-thin"
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "pvc-clone"
+      },
+      "spec": {
+        "capacity": {
+          "storage": "100Gi"
+        },
+        "claimRef": {
+          "name": "clone",
+          "namespace": "ns-b"
+        },
+        "csi": {
+          "driver": "topolvm.io",
+          "volumeHandle": "00000000-0000-0000-0000-000000000005"
+        },
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.topolvm.io/node",
+                    "operator": "In",
+                    "values": [
+                      "node-a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "persistentVolumeReclaimPolicy": "Retain",
+        "storageClassName": "topolvm-thin"
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "PersistentVolumeList"
+}

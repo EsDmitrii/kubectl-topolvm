@@ -1,0 +1,27 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "topolvm.cybozu.com/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.cybozu.com/logicalvolume"
+        ],
+        "name": "pvc-l1",
+        "uid": "00000000-0000-0000-0000-000000000001"
+      },
+      "spec": {
+        "name": "pvc-l1",
+        "nodeName": "node-a",
+        "size": "8Gi"
+      },
+      "status": {
+        "currentSize": "8Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000001"
+      }
+    }
+  ],
+  "kind": "List"
+}

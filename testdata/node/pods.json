@@ -1,0 +1,123 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "db-0",
+        "namespace": "ns-a",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "controller": true,
+            "kind": "StatefulSet",
+            "name": "db",
+            "uid": "own-db"
+          }
+        ],
+        "uid": "pod-uid-ns-a-db-0"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "nodeName": "node-a",
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "data-db-0"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "ha-0",
+        "namespace": "ns-a",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "controller": true,
+            "kind": "StatefulSet",
+            "name": "ha",
+            "uid": "own-ha"
+          }
+        ],
+        "uid": "pod-uid-ns-a-ha-0"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "nodeName": "node-a",
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "data-ha-0"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "ha-1",
+        "namespace": "ns-a",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "controller": true,
+            "kind": "StatefulSet",
+            "name": "ha",
+            "uid": "own-ha"
+          }
+        ],
+        "uid": "pod-uid-ns-a-ha-1"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "nodeName": "node-b",
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "data-ha-1"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running"
+      }
+    }
+  ],
+  "kind": "PodList"
+}

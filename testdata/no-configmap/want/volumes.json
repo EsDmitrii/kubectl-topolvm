@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "volumes": [
+    {
+      "lv": "pvc-1",
+      "volumeID": "00000000-0000-0000-0000-000000000001",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-1",
+      "namespace": "ns-a",
+      "pvc": "data",
+      "storageClass": "topolvm-retain",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 10737418240,
+      "currentSizeBytes": 10737418240,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    }
+  ],
+  "warnings": [
+    "type of device class \"ssd\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=ssd if it is a thin pool"
+  ]
+}

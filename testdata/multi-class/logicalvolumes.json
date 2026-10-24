@@ -1,0 +1,119 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-d1",
+        "uid": "00000000-0000-0000-0000-000000000001"
+      },
+      "spec": {
+        "name": "pvc-d1",
+        "nodeName": "node-a",
+        "size": "10Gi"
+      },
+      "status": {
+        "currentSize": "10Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000001"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-d2",
+        "uid": "00000000-0000-0000-0000-000000000002"
+      },
+      "spec": {
+        "deviceClass": "dc2",
+        "name": "pvc-d2",
+        "nodeName": "node-a",
+        "size": "5Gi"
+      },
+      "status": {
+        "currentSize": "5Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000002"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-src",
+        "uid": "00000000-0000-0000-0000-000000000003"
+      },
+      "spec": {
+        "deviceClass": "nvme-thin",
+        "name": "pvc-src",
+        "nodeName": "node-a",
+        "size": "100Gi"
+      },
+      "status": {
+        "currentSize": "100Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000003"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "snapshot-1",
+        "uid": "00000000-0000-0000-0000-000000000004"
+      },
+      "spec": {
+        "accessType": "ro",
+        "deviceClass": "nvme-thin",
+        "name": "snapshot-1",
+        "nodeName": "node-a",
+        "size": "100Gi",
+        "source": "pvc-src"
+      },
+      "status": {
+        "currentSize": "100Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000004"
+      }
+    },
+    {
+      "apiVersion": "topolvm.io/v1",
+      "kind": "LogicalVolume",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "finalizers": [
+          "topolvm.io/logicalvolume"
+        ],
+        "name": "pvc-clone",
+        "uid": "00000000-0000-0000-0000-000000000005"
+      },
+      "spec": {
+        "accessType": "rw",
+        "deviceClass": "nvme-thin",
+        "name": "pvc-clone",
+        "nodeName": "node-a",
+        "size": "100Gi",
+        "source": "pvc-src"
+      },
+      "status": {
+        "currentSize": "100Gi",
+        "volumeID": "00000000-0000-0000-0000-000000000005"
+      }
+    }
+  ],
+  "kind": "List"
+}

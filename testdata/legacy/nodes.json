@@ -1,0 +1,20 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "annotations": {
+          "capacity.topolvm.cybozu.com/00default": "53687091200",
+          "capacity.topolvm.cybozu.com/ssd": "53687091200"
+        },
+        "labels": {
+          "topology.topolvm.cybozu.com/node": "node-a"
+        },
+        "name": "node-a"
+      }
+    }
+  ],
+  "kind": "NodeList"
+}

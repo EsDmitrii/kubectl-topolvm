@@ -1,0 +1,6 @@
+NODE     DEVICE-CLASS    TYPE    SIZE    USED    FREE    USE%   LVS
+node-1   ssd (default)   thick   1.8Ti   58Gi    1.7Ti   3%     11
+node-2   ssd (default)   thick   1.8Ti   76Gi    1.7Ti   4%     12
+node-3   ssd (default)   thick   1.8Ti   68Gi    1.7Ti   4%     12
+node-4   ssd (default)   thick   2.8Ti   0       2.8Ti   0%     0
+*        ssd (default)   thick   8Ti     202Gi   7.8Ti   2%     35

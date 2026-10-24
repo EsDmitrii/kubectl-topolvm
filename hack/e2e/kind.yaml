@@ -1,0 +1,24 @@
+---
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: topolvm-e2e
+networking:
+  # setup.sh replaces it with API_ADDRESS (default 127.0.0.1).
+  apiServerAddress: "127.0.0.1"
+  apiServerPort: 6443
+kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    apiServer:
+      certSANs: ["127.0.0.1", "localhost"]
+nodes:
+  - role: control-plane
+  - role: worker
+    labels: {e2e.topolvm/lvm: w1, e2e.topolvm/topolvm: "true"}
+    extraMounts: [{hostPath: /dev, containerPath: /dev}]
+  - role: worker
+    labels: {e2e.topolvm/lvm: w2, e2e.topolvm/topolvm: "true"}
+    extraMounts: [{hostPath: /dev, containerPath: /dev}]
+  - role: worker
+    labels: {e2e.topolvm/lvm: w3, e2e.topolvm/topolvm: "true"}
+    extraMounts: [{hostPath: /dev, containerPath: /dev}]

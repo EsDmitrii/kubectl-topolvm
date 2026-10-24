@@ -1,0 +1,2 @@
+NODE     DEVICE-CLASS    TYPE   SIZE   USED   FREE   USE%   LVS   VG    SPARE
+node-a   vg1 (default)   thin   11Gi   1Gi    10Gi   -      1     vg1   -

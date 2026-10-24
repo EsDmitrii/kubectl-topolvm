@@ -1,0 +1,10 @@
+NAME                          SIZE    USED    FREE    USE%   STATUS
+node-a
+├─ dc1 (default)              110Gi   10Gi    100Gi   9%
+│  └─ ns-a/d1                 10Gi                           Bound
+├─ dc2                        55Gi    5Gi     50Gi    9%
+│  └─ ns-a/d2                 5Gi                            Bound
+└─ nvme-thin                  1.2Ti   300Gi   900Gi   -
+   ├─ ns-b/clone              100Gi                          Bound
+   ├─ ns-b/src                100Gi                          Bound
+   └─ <snapshot> snapshot-1   100Gi                          Snapshot

@@ -1,0 +1,90 @@
+---
+# Close to a typical production setup: lvmd as a DaemonSet, no scheduler extender, no
+# webhook, capacity tracking on. Each worker has its own volume groups, so the same class name maps
+# to different VGs on different nodes, and w1 keeps a thin pool in the VG of its thick class.
+useLegacy: false
+scheduler:
+  enabled: false
+webhook:
+  podMutatingWebhook:
+    enabled: false
+controller:
+  replicaCount: 1
+  # verify.sh deletes w3; a controller there could not run the node finalizer.
+  nodeSelector:
+    e2e.topolvm/lvm: w1
+  storageCapacityTracking:
+    enabled: true
+  nodeFinalize:
+    skipped: false
+node:
+  nodeSelector:
+    e2e.topolvm/topolvm: "true"
+lvmd:
+  managed: true
+  nodeSelector:
+    e2e.topolvm/lvm: w1
+  deviceClasses:
+    - name: ssd
+      volume-group: e2e-w1
+      default: true
+      spare-gb: 1
+    - name: nvme-thin
+      volume-group: e2e-w1
+      type: thin
+      thin-pool:
+        name: pool0
+        overprovision-ratio: 5
+  additionalConfigs:
+    - nodeSelector:
+        e2e.topolvm/lvm: w2
+      deviceClasses:
+        - name: ssd
+          volume-group: e2e-w2
+          default: true
+          spare-gb: 1
+        - name: hdd
+          volume-group: e2e-w2-hdd
+          spare-gb: 0
+    - nodeSelector:
+        e2e.topolvm/lvm: w3
+      deviceClasses:
+        - name: ssd
+          volume-group: e2e-w3
+          default: true
+          spare-gb: 1
+storageClasses:
+  - name: topolvm-ssd
+    storageClass:
+      fsType: ext4
+      reclaimPolicy: Delete
+      volumeBindingMode: WaitForFirstConsumer
+      allowVolumeExpansion: true
+  - name: topolvm-retain
+    storageClass:
+      fsType: ext4
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      allowVolumeExpansion: true
+  - name: topolvm-hdd
+    storageClass:
+      fsType: xfs
+      reclaimPolicy: Delete
+      volumeBindingMode: WaitForFirstConsumer
+      allowVolumeExpansion: true
+      additionalParameters:
+        topolvm.io/device-class: hdd
+  - name: topolvm-thin
+    storageClass:
+      fsType: ext4
+      reclaimPolicy: Delete
+      volumeBindingMode: WaitForFirstConsumer
+      allowVolumeExpansion: true
+      additionalParameters:
+        topolvm.io/device-class: nvme-thin
+  - name: topolvm-immediate
+    storageClass:
+      fsType: ext4
+      reclaimPolicy: Delete
+      volumeBindingMode: Immediate
+      allowVolumeExpansion: true

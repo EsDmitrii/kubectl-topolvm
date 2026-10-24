@@ -1,0 +1,5 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC         STORAGECLASS     STATUS     AGE   KIND     CURRENT   RECLAIM   LV        VOLUME-ID
+node-a   ssd            50Gi   ns-a        data-db-0   topolvm-retain   Bound      23d   volume   50Gi      Retain    pvc-db0   00000000-0000-0000-0000-000000000001
+node-a   ssd            80Gi   ns-a        data-ha-0   topolvm-retain   Bound      23d   volume   80Gi      Retain    pvc-ha0   00000000-0000-0000-0000-000000000002
+node-a   ssd            10Gi   ns-a        old         topolvm-retain   Released   23d   volume   10Gi      Retain    pvc-old   00000000-0000-0000-0000-000000000004
+node-b   ssd            80Gi   ns-a        data-ha-1   topolvm-retain   Bound      23d   volume   80Gi      Retain    pvc-ha1   00000000-0000-0000-0000-000000000003

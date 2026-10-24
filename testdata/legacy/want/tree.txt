@@ -1,0 +1,4 @@
+NAME                SIZE   USED   FREE   USE%   STATUS
+node-a
+└─ ssd (default)    58Gi   8Gi    50Gi   14%
+   └─ ns-a/legacy   8Gi                         Bound

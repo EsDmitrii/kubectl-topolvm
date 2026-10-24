@@ -1,0 +1,3 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC   STORAGECLASS     STATUS   AGE   KIND     CURRENT   RECLAIM   LV      VOLUME-ID
+node-a   dc1            10Gi   ns-a        one   topolvm-retain   Bound    23d   volume   10Gi      Retain    pvc-1   00000000-0000-0000-0000-000000000001
+node-a   <default>      1Gi    ns-a        two   topolvm-retain   Bound    23d   volume   1Gi       Retain    pvc-2   00000000-0000-0000-0000-000000000002

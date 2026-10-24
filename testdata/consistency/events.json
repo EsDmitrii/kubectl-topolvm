@@ -1,0 +1,25 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "involvedObject": {
+        "kind": "PersistentVolumeClaim",
+        "name": "grow",
+        "namespace": "ns-a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-24T11:50:00Z",
+      "message": "rpc error: code = Internal desc = not enough space",
+      "metadata": {
+        "name": "grow.1",
+        "namespace": "ns-a",
+        "uid": "ev-grow.1"
+      },
+      "reason": "VolumeResizeFailed",
+      "type": "Warning"
+    }
+  ],
+  "kind": "EventList"
+}

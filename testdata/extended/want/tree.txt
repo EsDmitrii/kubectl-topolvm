@@ -1,0 +1,4 @@
+NAME               SIZE   USED   FREE   USE%   STATUS
+node-a
+└─ vg1 (default)   11Gi   1Gi    10Gi   -
+   └─ ns-a/e1      1Gi                         Bound

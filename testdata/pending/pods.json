@@ -1,0 +1,93 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "app-big",
+        "namespace": "ns-a",
+        "uid": "pod-uid-ns-a-app-big"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "big"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "app-prov",
+        "namespace": "ns-a",
+        "uid": "pod-uid-ns-a-app-prov"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "prov"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "app-local",
+        "namespace": "ns-a",
+        "uid": "pod-uid-ns-a-app-local"
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "app",
+            "name": "app"
+          }
+        ],
+        "volumes": [
+          {
+            "name": "v0",
+            "persistentVolumeClaim": {
+              "claimName": "local"
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    }
+  ],
+  "kind": "PodList"
+}

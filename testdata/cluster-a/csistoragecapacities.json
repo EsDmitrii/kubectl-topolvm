@@ -1,0 +1,96 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-6d2hm",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-1"
+        }
+      },
+      "storageClassName": "sc-2",
+      "capacity": "116268Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-9vrqz",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-1"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "116268Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-dxkvw",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-2",
+      "capacity": "97836Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-llsqt",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-2",
+      "capacity": "182828Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-pk52n",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "97836Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-q9cn2",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "182828Mi"
+    }
+  ],
+  "kind": "CSIStorageCapacityList"
+}

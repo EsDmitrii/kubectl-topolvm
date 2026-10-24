@@ -1,0 +1,48 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "annotations": {
+          "capacity.topolvm.io/00default": "107374182400",
+          "capacity.topolvm.io/ssd": "107374182400"
+        },
+        "labels": {
+          "topology.topolvm.io/node": "node-a"
+        },
+        "name": "node-a"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "annotations": {
+          "capacity.topolvm.io/00default": "64424509440",
+          "capacity.topolvm.io/ssd": "64424509440"
+        },
+        "labels": {
+          "topology.topolvm.io/node": "node-b"
+        },
+        "name": "node-b"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "annotations": {
+          "capacity.topolvm.io/00default": "42949672960",
+          "capacity.topolvm.io/ssd": "42949672960"
+        },
+        "labels": {
+          "topology.topolvm.io/node": "node-c"
+        },
+        "name": "node-c"
+      }
+    }
+  ],
+  "kind": "NodeList"
+}

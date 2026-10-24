@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "pools": [
+    {
+      "node": "node-a",
+      "deviceClass": "dc1",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 118111600640,
+      "usedBytes": 10737418240,
+      "freeBytes": 107374182400,
+      "usedPercent": 9.1,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-a",
+      "deviceClass": "dc2",
+      "default": false,
+      "type": "thick",
+      "volumeGroup": "vg1",
+      "spareBytes": 0,
+      "sizeBytes": 59055800320,
+      "usedBytes": 5368709120,
+      "freeBytes": 53687091200,
+      "usedPercent": 9.1,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-a",
+      "deviceClass": "nvme-thin",
+      "default": false,
+      "type": "thin",
+      "volumeGroup": "vg2",
+      "spareBytes": null,
+      "sizeBytes": 1288490188800,
+      "usedBytes": 322122547200,
+      "freeBytes": 966367641600,
+      "usedPercent": null,
+      "volumes": 3,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [],
+  "breaches": [],
+  "warnings": [
+    "device class \"nvme-thin\" is thin: SIZE, USED and FREE are virtual (overprovisioned) sizes"
+  ]
+}

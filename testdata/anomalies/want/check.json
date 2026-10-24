@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "findings": [
+    {
+      "check": "orphan-lv",
+      "object": "logicalvolume/pvc-a1",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": 10737418240,
+      "ageSeconds": 388800,
+      "detail": "no PersistentVolume with volumeHandle 00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "check": "pv-without-lv",
+      "object": "persistentvolume/pvc-a4",
+      "node": "node-b",
+      "deviceClass": "",
+      "namespace": "ns-x",
+      "sizeBytes": null,
+      "ageSeconds": 129600,
+      "detail": "no LogicalVolume with volumeID uid-missing"
+    },
+    {
+      "check": "released-pv",
+      "object": "persistentvolume/pvc-a5",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 21474836480,
+      "ageSeconds": null,
+      "detail": "PV is Released (reclaimPolicy Retain), the LV still holds the space"
+    },
+    {
+      "check": "lv-on-missing-node",
+      "object": "logicalvolume/pvc-a6",
+      "node": "node-gone",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 5368709120,
+      "ageSeconds": 2030400,
+      "detail": "node node-gone no longer exists"
+    },
+    {
+      "check": "lv-on-missing-node",
+      "object": "logicalvolume/pvc-a8",
+      "node": "node-gone",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 2147483648,
+      "ageSeconds": 2030400,
+      "detail": "node node-gone no longer exists"
+    },
+    {
+      "check": "stuck-deletion",
+      "object": "logicalvolume/pvc-a7",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 2147483648,
+      "ageSeconds": 7200,
+      "detail": "deletion requested 120m ago, finalizers: topolvm.io/logicalvolume"
+    },
+    {
+      "check": "pending-deletion",
+      "object": "logicalvolume/pvc-a8",
+      "node": "node-gone",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 2147483648,
+      "ageSeconds": 2030400,
+      "detail": "topolvm.io/pendingdeletion is set but finalizer topolvm.io/logicalvolume is still there"
+    },
+    {
+      "check": "lv-error",
+      "object": "logicalvolume/pvc-a9",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": 10800,
+      "detail": "create of 4Gi failed: ResourceExhausted: not enough space"
+    },
+    {
+      "check": "lv-error",
+      "object": "logicalvolume/pvc-a10",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 21474836480,
+      "ageSeconds": 2030400,
+      "detail": "expand failed: Internal: not enough space"
+    },
+    {
+      "check": "resize-pending",
+      "object": "logicalvolume/pvc-a10",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 32212254720,
+      "ageSeconds": 10799,
+      "detail": "spec.size 30Gi, current 20Gi"
+    },
+    {
+      "check": "uid-mismatch",
+      "object": "logicalvolume/pvc-a12",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "ns-x",
+      "sizeBytes": 3221225472,
+      "ageSeconds": 2030400,
+      "detail": "status.volumeID u-old differs from metadata.uid u-new: the CR was recreated"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "findings": [
+    {
+      "check": "released-pv",
+      "object": "persistentvolume/pvc-old",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 10737418240,
+      "ageSeconds": null,
+      "detail": "PV is Released (reclaimPolicy Retain), the LV still holds the space"
+    }
+  ],
+  "warnings": []
+}

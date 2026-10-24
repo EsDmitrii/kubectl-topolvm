@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "volumes": [
+    {
+      "lv": "pvc-1111",
+      "volumeID": "00000000-0000-0000-0000-000000000001",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-1111",
+      "namespace": "ns-a",
+      "pvc": "data-1",
+      "storageClass": "topolvm-retain",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 10737418240,
+      "currentSizeBytes": 10737418240,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    },
+    {
+      "lv": "pvc-2222",
+      "volumeID": "00000000-0000-0000-0000-000000000002",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-2222",
+      "namespace": "ns-b",
+      "pvc": "data-2",
+      "storageClass": "topolvm-default",
+      "reclaimPolicy": "Delete",
+      "sizeBytes": 21474836480,
+      "currentSizeBytes": 21474836480,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-20T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    }
+  ],
+  "warnings": []
+}

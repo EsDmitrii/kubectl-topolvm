@@ -1,0 +1,6 @@
+NODE     DEVICE-CLASS   SIZE    NAMESPACE   PVC      STORAGECLASS     STATUS     AGE
+node-a   dc1            10Gi    ns-a        d1       topolvm-retain   Bound      23d
+node-a   dc2            5Gi     ns-a        d2       topolvm-dc2      Bound      23d
+node-a   nvme-thin      100Gi   ns-b        clone    topolvm-thin     Bound      23d
+node-a   nvme-thin      100Gi   ns-b        src      topolvm-thin     Bound      23d
+node-a   nvme-thin      100Gi   <none>      <none>   <none>           Snapshot   23d

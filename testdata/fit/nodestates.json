@@ -1,0 +1,26 @@
+{
+  "node-a": {
+    "hasFinalizer": true,
+    "ready": true,
+    "taints": [],
+    "unschedulable": false
+  },
+  "node-b": {
+    "hasFinalizer": true,
+    "ready": true,
+    "taints": [],
+    "unschedulable": true
+  },
+  "node-c": {
+    "hasFinalizer": true,
+    "ready": true,
+    "taints": [
+      {
+        "effect": "NoSchedule",
+        "key": "dedicated",
+        "value": "db"
+      }
+    ],
+    "unschedulable": false
+  }
+}

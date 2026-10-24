@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "volumes": [
+    {
+      "lv": "pvc-bound",
+      "volumeID": "00000000-0000-0000-0000-000000000001",
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "kind": "volume",
+      "source": null,
+      "pv": "pvc-bound",
+      "namespace": "ns-a",
+      "pvc": "bound",
+      "storageClass": "topolvm-wffc",
+      "reclaimPolicy": "Retain",
+      "sizeBytes": 1073741824,
+      "currentSizeBytes": 1073741824,
+      "status": "Bound",
+      "code": 0,
+      "message": null,
+      "createdAt": "2026-10-01T00:00:00Z",
+      "fsUsedBytes": null,
+      "fsCapacityBytes": null,
+      "idleBytes": null
+    }
+  ],
+  "warnings": []
+}

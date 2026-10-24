@@ -1,0 +1,25 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "involvedObject": {
+        "kind": "Pod",
+        "name": "app-0",
+        "namespace": "ns-a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-10-24T11:50:00Z",
+      "message": "0/1 nodes are available",
+      "metadata": {
+        "name": "e1.1",
+        "namespace": "ns-a",
+        "uid": "ev-e1.1"
+      },
+      "reason": "FailedScheduling",
+      "type": "Warning"
+    }
+  ],
+  "kind": "EventList"
+}

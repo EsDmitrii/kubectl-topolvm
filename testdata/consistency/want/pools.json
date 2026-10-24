@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "pools": [
+    {
+      "node": "node-a",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 64424509440,
+      "usedBytes": 10737418240,
+      "freeBytes": 53687091200,
+      "usedPercent": 16.7,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-a",
+      "deviceClass": "old",
+      "default": false,
+      "type": "unknown",
+      "volumeGroup": null,
+      "spareBytes": null,
+      "sizeBytes": 5368709120,
+      "usedBytes": 0,
+      "freeBytes": 5368709120,
+      "usedPercent": 0,
+      "volumes": 0,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "vg0",
+      "spareBytes": 10737418240,
+      "sizeBytes": 42949672960,
+      "usedBytes": 0,
+      "freeBytes": 42949672960,
+      "usedPercent": 0,
+      "volumes": 0,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-c",
+      "deviceClass": "",
+      "default": false,
+      "type": "unknown",
+      "volumeGroup": null,
+      "spareBytes": null,
+      "sizeBytes": null,
+      "usedBytes": 0,
+      "freeBytes": null,
+      "usedPercent": null,
+      "volumes": 0,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [
+    {
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "nodes": 2,
+      "sizeBytes": 107374182400,
+      "usedBytes": 10737418240,
+      "freeBytes": 96636764160,
+      "maxFreeBytes": 53687091200,
+      "maxFreeNode": "node-a",
+      "usedPercent": 10,
+      "volumes": 1
+    }
+  ],
+  "breaches": [],
+  "warnings": [
+    "node node-c has no capacity.topolvm.io/* annotations: is topolvm-node running there?",
+    "type of device class \"old\" is unknown (not in the lvmd config); USE% assumes thick, pass --thin=old if it is a thin pool"
+  ]
+}

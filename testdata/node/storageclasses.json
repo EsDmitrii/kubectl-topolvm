@@ -1,0 +1,17 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "allowVolumeExpansion": true,
+      "apiVersion": "storage.k8s.io/v1",
+      "kind": "StorageClass",
+      "metadata": {
+        "name": "topolvm-retain"
+      },
+      "provisioner": "topolvm.io",
+      "reclaimPolicy": "Delete",
+      "volumeBindingMode": "WaitForFirstConsumer"
+    }
+  ],
+  "kind": "StorageClassList"
+}

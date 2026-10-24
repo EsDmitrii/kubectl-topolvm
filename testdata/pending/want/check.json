@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "findings": [
+    {
+      "check": "immediate-binding",
+      "object": "storageclass/topolvm-immediate",
+      "node": "",
+      "deviceClass": "",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer"
+    },
+    {
+      "check": "pvc-pending",
+      "object": "persistentvolumeclaim/ns-a/big",
+      "node": "",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 107374182400,
+      "ageSeconds": 3600,
+      "detail": "Unschedulable: no node has 100Gi free in class ssd (max 50Gi on node-a)"
+    },
+    {
+      "check": "pvc-pending",
+      "object": "persistentvolumeclaim/ns-a/imm",
+      "node": "",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 5368709120,
+      "ageSeconds": 3600,
+      "detail": "Immediate: StorageClass topolvm-immediate uses Immediate binding; TopoLVM recommends WaitForFirstConsumer"
+    },
+    {
+      "check": "pvc-pending",
+      "object": "persistentvolumeclaim/ns-a/prov",
+      "node": "node-b",
+      "deviceClass": "ssd",
+      "namespace": "ns-a",
+      "sizeBytes": 32212254720,
+      "ageSeconds": 3600,
+      "detail": "Provisioning: node-b has only 20Gi free in class ssd"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T15:01:00Z",
+  "findings": [
+    {
+      "check": "lv-on-missing-node",
+      "object": "logicalvolume/lv-1",
+      "node": "node-1",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": 1073741824,
+      "ageSeconds": 499,
+      "detail": "node node-1 no longer exists"
+    },
+    {
+      "check": "uid-mismatch",
+      "object": "logicalvolume/lv-1",
+      "node": "node-1",
+      "deviceClass": "ssd",
+      "namespace": "",
+      "sizeBytes": 1073741824,
+      "ageSeconds": 499,
+      "detail": "status.volumeID 00000000-0000-0000-0000-00000000dead differs from metadata.uid bd5bae5b-75de-43bb-a610-b9ee09c64d97: the CR was recreated"
+    },
+    {
+      "check": "immediate-binding",
+      "object": "storageclass/sc-2",
+      "node": "",
+      "deviceClass": "",
+      "namespace": "",
+      "sizeBytes": null,
+      "ageSeconds": null,
+      "detail": "volumeBindingMode Immediate; TopoLVM recommends WaitForFirstConsumer"
+    }
+  ],
+  "warnings": [
+    "device class \"nvme-thin\" is thin: SIZE, USED and FREE are virtual (overprovisioned) sizes"
+  ]
+}

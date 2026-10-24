@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T15:01:00Z",
+  "pools": [
+    {
+      "node": "node-2",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "e2e-w1",
+      "spareBytes": 1073741824,
+      "sizeBytes": 13669236736,
+      "usedBytes": 1073741824,
+      "freeBytes": 12595494912,
+      "usedPercent": 7.9,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-2",
+      "deviceClass": "nvme-thin",
+      "default": false,
+      "type": "thin",
+      "volumeGroup": "e2e-w1",
+      "spareBytes": null,
+      "sizeBytes": 32212254720,
+      "usedBytes": 6442450944,
+      "freeBytes": 25769803776,
+      "usedPercent": null,
+      "volumes": 3,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-3",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "e2e-w2",
+      "spareBytes": 1073741824,
+      "sizeBytes": 20396900352,
+      "usedBytes": 5368709120,
+      "freeBytes": 15028191232,
+      "usedPercent": 26.3,
+      "volumes": 4,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-3",
+      "deviceClass": "hdd",
+      "default": false,
+      "type": "thick",
+      "volumeGroup": "e2e-w2-hdd",
+      "spareBytes": 0,
+      "sizeBytes": 10733223936,
+      "usedBytes": 1073741824,
+      "freeBytes": 9659482112,
+      "usedPercent": 10,
+      "volumes": 1,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    },
+    {
+      "node": "node-4",
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "volumeGroup": "e2e-w3",
+      "spareBytes": 1073741824,
+      "sizeBytes": 20396900352,
+      "usedBytes": 3221225472,
+      "freeBytes": 17175674880,
+      "usedPercent": 15.8,
+      "volumes": 2,
+      "volumeGroupSizeBytes": null,
+      "otherBytes": null,
+      "thinDataPercent": null,
+      "thinMetadataPercent": null
+    }
+  ],
+  "totals": [
+    {
+      "deviceClass": "ssd",
+      "default": true,
+      "type": "thick",
+      "nodes": 3,
+      "sizeBytes": 54463037440,
+      "usedBytes": 9663676416,
+      "freeBytes": 44799361024,
+      "maxFreeBytes": 17175674880,
+      "maxFreeNode": "node-4",
+      "usedPercent": 17.7,
+      "volumes": 7
+    }
+  ],
+  "breaches": [],
+  "warnings": [
+    "device class \"nvme-thin\" is thin: SIZE, USED and FREE are virtual (overprovisioned) sizes"
+  ]
+}

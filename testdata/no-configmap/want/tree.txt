@@ -1,0 +1,4 @@
+NAME               SIZE    USED   FREE    USE%   STATUS
+node-a
+└─ ssd (default)   110Gi   10Gi   100Gi   9%
+   └─ ns-a/data    10Gi                          Bound

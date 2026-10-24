@@ -1,0 +1,38 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "annotations": {
+          "resize.topolvm.io/storage_limit": "200Gi",
+          "volume.kubernetes.io/selected-node": "node-a"
+        },
+        "creationTimestamp": "2026-10-01T00:00:00Z",
+        "name": "data",
+        "namespace": "ns-a",
+        "uid": "pvc-uid-ns-a-data"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "10Gi"
+          }
+        },
+        "storageClassName": "topolvm-retain",
+        "volumeName": "pvc-data"
+      },
+      "status": {
+        "capacity": {
+          "storage": "10Gi"
+        },
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "PersistentVolumeClaimList"
+}

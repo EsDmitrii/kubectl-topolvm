@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "v1",
+  "driver": "topolvm.io",
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "findings": [],
+  "warnings": [
+    "node node-a: cannot tell the default device class; volumes without deviceClass are shown as <default>",
+    "node node-a: ignoring unparsable annotation capacity.topolvm.io/broken",
+    "node node-b has no capacity.topolvm.io/* annotations: is topolvm-node running there?",
+    "type of device class \"dc1\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=dc1 if it is a thin pool",
+    "type of device class \"dc2\" is unknown (no readable lvmd config); USE% assumes thick, pass --thin=dc2 if it is a thin pool"
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-bflgk",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-3",
+      "capacity": "14332Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-cm8dw",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-5",
+      "capacity": "24Gi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-dd5cw",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-4"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "0"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-f98hb",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-3",
+      "capacity": "12012Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-hsl9x",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-4"
+        }
+      },
+      "storageClassName": "sc-3",
+      "capacity": "16380Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-lwrns",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "9212Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-nftbm",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-4",
+      "capacity": "14332Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-p5rvw",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-4",
+      "capacity": "12012Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-rfmvm",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-4"
+        }
+      },
+      "storageClassName": "sc-4",
+      "capacity": "16380Mi"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-rmqpb",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-4"
+        }
+      },
+      "storageClassName": "sc-5",
+      "capacity": "0"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-v8h7s",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-3"
+        }
+      },
+      "storageClassName": "sc-5",
+      "capacity": "0"
+    },
+    {
+      "kind": "CSIStorageCapacity",
+      "apiVersion": "storage.k8s.io/v1",
+      "metadata": {
+        "name": "csisc-zgmzq",
+        "namespace": "topolvm-system"
+      },
+      "nodeTopology": {
+        "matchLabels": {
+          "topology.topolvm.io/node": "node-2"
+        }
+      },
+      "storageClassName": "sc-1",
+      "capacity": "0"
+    }
+  ],
+  "kind": "CSIStorageCapacityList"
+}

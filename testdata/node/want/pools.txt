@@ -1,0 +1,5 @@
+NODE     DEVICE-CLASS    TYPE    SIZE    USED    FREE    USE%   LVS
+node-a   ssd (default)   thick   240Gi   140Gi   100Gi   58%    3
+node-b   ssd (default)   thick   140Gi   80Gi    60Gi    57%    1
+node-c   ssd (default)   thick   40Gi    0       40Gi    0%     0
+*        ssd (default)   thick   420Gi   220Gi   200Gi   52%    4

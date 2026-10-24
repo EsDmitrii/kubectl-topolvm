@@ -1,0 +1,2 @@
+NODE     DEVICE-CLASS   SIZE   NAMESPACE   PVC      STORAGECLASS          STATUS   AGE   KIND     CURRENT   RECLAIM   LV       VOLUME-ID
+node-a   ssd            8Gi    ns-a        legacy   topolvm-provisioner   Bound    23d   volume   8Gi       Retain    pvc-l1   00000000-0000-0000-0000-000000000001

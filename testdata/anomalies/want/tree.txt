@@ -1,0 +1,15 @@
+NAME                    SIZE    USED   FREE    USE%   STATUS
+node-a
+└─ ssd (default)        114Gi   14Gi   100Gi   12%
+   ├─ ns-x/deleting     2Gi                           Deleting
+   ├─ <orphan> pvc-a1   10Gi                          Orphan
+   ├─ <orphan> pvc-a2   1Gi                           Orphan
+   ├─ <orphan> pvc-a3   1Gi                           Orphan
+   └─ pvc-a9            4Gi                           Error
+node-b
+└─ ssd (default)        169Gi   69Gi   100Gi   41%
+   ├─ ns-x/expand       30Gi                          Error
+   ├─ ns-x/recreated    3Gi                           Bound
+   ├─ ns-x/released     20Gi                          Released
+   ├─ ns-x/rounded      20Gi                          Bound
+   └─ ns-x/static       6Gi                           Bound
