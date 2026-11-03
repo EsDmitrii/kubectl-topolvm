@@ -38,7 +38,7 @@ spec:
   $selector
   terminationGracePeriodSeconds: 1
   containers:
-    - {name: app, image: busybox:1.36, command: [sh, -c, "dd if=/dev/zero of=/data/fill bs=1M count=64; sleep 1d"], volumeMounts: [{name: data, mountPath: /data}]}
+    - {name: app, image: busybox:1.38, command: [sh, -c, "dd if=/dev/zero of=/data/fill bs=1M count=64; sleep 1d"], volumeMounts: [{name: data, mountPath: /data}]}
   volumes:
     - {name: data, persistentVolumeClaim: {claimName: $3}}
 YAML
@@ -66,7 +66,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - {labelSelector: {matchLabels: {app: $2}}, topologyKey: kubernetes.io/hostname}
       containers:
-        - {name: app, image: busybox:1.36, command: [sh, -c, "sleep 1d"], volumeMounts: [{name: data, mountPath: /data}]}
+        - {name: app, image: busybox:1.38, command: [sh, -c, "sleep 1d"], volumeMounts: [{name: data, mountPath: /data}]}
   volumeClaimTemplates:
     - metadata: {name: data}
       spec: {accessModes: [ReadWriteOnce], storageClassName: $5, resources: {requests: {storage: $4}}}
