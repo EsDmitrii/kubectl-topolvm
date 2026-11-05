@@ -119,18 +119,18 @@ jobs:
             gh release edit "$GITHUB_REF_NAME" --draft=false --latest=false
           fi
 
-  # The bot cannot submit a new plugin (krew-index closes such PRs), so the first version goes in
-  # by hand and the repository variable KREW_INDEXED=true turns this job on afterwards.
-  krew:
-    name: Open krew-index bump PR
+  # The plugin is not in krew-index: this repository is its krew index, and `kubectl krew upgrade`
+  # installs whatever plugins/topolvm.yaml on the default branch names.
+  index:
+    name: Update the krew index
     needs: publish
-    if: ${{ needs.publish.outputs.latest == 'true' && vars.KREW_INDEXED == 'true' }}
+    if: ${{ needs.publish.outputs.latest == 'true' }}
     runs-on: ubuntu-latest
     concurrency:
-      group: release-krew-${{ github.repository }}
+      group: release-index-${{ github.repository }}
       cancel-in-progress: false
     permissions:
-      contents: read
+      contents: write          # commits plugins/topolvm.yaml to the default branch
     env:
       KREW_VERSION: v0.4.5
     steps:
@@ -138,16 +138,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-        run: gh release download "$GITHUB_REF_NAME" --pattern topolvm.yaml
+        run: gh release download "$GITHUB_REF_NAME" --pattern topolvm.yaml --dir "$RUNNER_TEMP/release"
 
-      # No checkout here, so no go.mod: the version is pinned with the toolchain line of go.mod.
+      # Not checked out yet, so no go.mod: the version is pinned with the toolchain line of go.mod.
       - name: Set up Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version: "1.27.3"
           cache: false
 
-      # Installs every platform from the published URLs, as krew-index CI will.
+      # Installs every platform from the published URLs before anything reaches the index.
       - name: Validate the manifest against the published assets
         run: |
           set -euo pipefail
@@ -164,12 +164,33 @@ jobs:
             ./krew-linux_amd64 install --manifest=krew.yaml --archive=krew-linux_amd64.tar.gz
           )
           export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-          "$(go env GOPATH)/bin/validate-krew-manifest" -manifest topolvm.yaml
+          "$(go env GOPATH)/bin/validate-krew-manifest" -manifest "$RUNNER_TEMP/release/topolvm.yaml"
 
-      # The image the v0.0.51 action runs (its action.yml names the mutable tag v0.0.50), by tag and
-      # digest so that Renovate follows the tag instead of moving the digest to latest.
-      - name: Open krew-index bump PR
-        # yamllint disable-line rule:line-length
-        uses: docker://ghcr.io/rajatjindal/krew-release-bot:v0.0.50@sha256:6932be48286bacb7a7e45d375ded48a97e7edc36959cd693473b8d08730d62ba
+      # Checked out after validation, so the push credentials exist only for the commit below.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Commit the manifest to the index
         env:
-          INPUT_KREW_TEMPLATE_FILE: topolvm.yaml
+          BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          cp "$RUNNER_TEMP/release/topolvm.yaml" plugins/topolvm.yaml
+          git add plugins/topolvm.yaml
+          if git diff --cached --quiet; then
+            echo "plugins/topolvm.yaml already names ${GITHUB_REF_NAME}"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Point the krew index at ${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${BRANCH}"; then
+              exit 0
+            fi
+            echo "push ${attempt} rejected, rebasing on ${BRANCH}"
+            git pull --rebase origin "$BRANCH"
+          done
+          echo "::error::could not push plugins/topolvm.yaml to ${BRANCH}"
+          exit 1

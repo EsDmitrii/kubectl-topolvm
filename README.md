@@ -45,23 +45,56 @@ and the cost of losing a node.
 
 ## Install
 
-With [krew](https://krew.sigs.k8s.io/):
-
-```bash
-kubectl krew install topolvm
-```
-
-Until the plugin is in the krew index, install the manifest attached to a release:
-
-```bash
-kubectl krew install --manifest-url=https://github.com/EsDmitrii/kubectl-topolvm/releases/latest/download/topolvm.yaml
-```
-
-By hand: download the archive for your platform from the
-[releases](https://github.com/EsDmitrii/kubectl-topolvm/releases), put `kubectl-topolvm` (or
-`kubectl-topolvm.exe`) somewhere on your `PATH` and run `kubectl topolvm`.
-
 Linux, macOS and Windows on amd64 and arm64.
+
+### With krew
+
+The plugin is not in the default krew index. This repository is a krew index of its own, so add it
+once and install from it:
+
+```bash
+kubectl krew index add esdmitrii https://github.com/EsDmitrii/kubectl-topolvm.git
+kubectl krew install esdmitrii/topolvm
+```
+
+krew warns that plugins outside the default index are not reviewed by its maintainers. Every
+release here carries a build provenance attestation, see [Verify a release](#verify-a-release).
+The index points at the latest release, and a release updates it on its own.
+
+Upgrade and removal:
+
+```bash
+kubectl krew upgrade
+kubectl krew uninstall topolvm
+kubectl krew index remove esdmitrii
+```
+
+If you installed it with `kubectl krew install --manifest-url=...`, krew skips it on upgrade
+("installed via manifest"). Install it again from the index to get updates:
+
+```bash
+kubectl krew uninstall topolvm
+kubectl krew install esdmitrii/topolvm
+```
+
+### By hand
+
+Download the archive for your platform and `checksums.txt` from the
+[releases](https://github.com/EsDmitrii/kubectl-topolvm/releases), check it as in
+[Verify a release](#verify-a-release), and put `kubectl-topolvm` (or `kubectl-topolvm.exe`)
+somewhere on your `PATH`:
+
+```bash
+tar xzf kubectl-topolvm_1.0.0_linux_amd64.tar.gz kubectl-topolvm
+install -m 0755 kubectl-topolvm ~/.local/bin/
+kubectl topolvm version
+```
+
+The binaries are not signed by Apple. On macOS a file downloaded with a browser is quarantined
+and refuses to run; `xattr -d com.apple.quarantine kubectl-topolvm` lifts that. `curl` does not
+set the quarantine flag.
+
+`kubectl plugin list` shows which `kubectl-topolvm` wins when there is more than one on the `PATH`.
 
 ## Commands
 

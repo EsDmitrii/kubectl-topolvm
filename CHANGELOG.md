@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Install through the plugin's own krew index: `kubectl krew index add esdmitrii
+  https://github.com/EsDmitrii/kubectl-topolvm.git`, then `kubectl krew install esdmitrii/topolvm`.
+  krew-index does not carry the plugin. A release updates `plugins/topolvm.yaml` itself, so
+  `kubectl krew upgrade` picks it up.
+
 ## v1.0.0
 
 First release.

@@ -213,10 +213,8 @@
       "matchPackageNames": [
         "goreleaser/goreleaser-action",
         "goreleaser/goreleaser",
-        "rajatjindal/krew-release-bot",
         "actions/attest",
-        "kubernetes-sigs/krew",
-        "ghcr.io/rajatjindal/krew-release-bot"
+        "kubernetes-sigs/krew"
       ],
       "groupName": "release tooling",
       "automerge": false

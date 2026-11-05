@@ -209,6 +209,7 @@ jobs:
           ./krew/render-manifest.sh "$version" dist topolvm.yaml
           go install "sigs.k8s.io/krew/cmd/validate-krew-manifest@${KREW_VERSION}"
           "$(go env GOPATH)/bin/validate-krew-manifest" -manifest topolvm.yaml -skip-install
+          "$(go env GOPATH)/bin/validate-krew-manifest" -manifest plugins/topolvm.yaml -skip-install
           work=$(mktemp -d)
           base="https://github.com/kubernetes-sigs/krew/releases/download/${KREW_VERSION}"
           (
