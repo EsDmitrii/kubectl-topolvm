@@ -155,7 +155,7 @@ jobs:
     name: Krew manifest
     runs-on: ubuntu-latest
     env:
-      KREW_VERSION: v0.4.5
+      KREW_VERSION: v0.5.0
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -195,9 +195,9 @@ jobs:
           fi
 
       - name: Build snapshot archives
-        uses: goreleaser/goreleaser-action@f06c13b6b1a9625abc9e6e439d9c05a8f2190e94 # v7.2.3
+        uses: goreleaser/goreleaser-action@a4f02ab5355a589de60d917a659ce617ed19b3de # v7.3.0
         with:
-          version: v2.18.2
+          version: v2.20.0
           args: release --snapshot --clean
 
       # The manifest is rendered from the real archives, validated the way krew-index CI does, and
