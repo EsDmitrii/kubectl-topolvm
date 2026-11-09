@@ -7,7 +7,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLUSTER="${CLUSTER:-topolvm-e2e}"
 WORK="${WORK:-/var/tmp/topolvm-e2e}"
-CHART_VERSION="${CHART_VERSION:-17.3.0}"
+CHART_VERSION="${CHART_VERSION:-17.3.1}"
 SNAPSHOTTER_VERSION="${SNAPSHOTTER_VERSION:-v8.7.0}"
 # Always our own kubeconfig: the scripts create, patch and delete objects.
 export KUBECONFIG="$WORK/kubeconfig"
